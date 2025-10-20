@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://your-sorted-site.vercel.app/sitemap.xml
+Sitemap: https://sorted-beryl.vercel.app/sitemap.xml
