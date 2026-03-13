@@ -4,574 +4,320 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Sorted • Web Development a Parma: siti, web app e tool veloci</title>
-  <meta name="description" content="Sorted crea siti, web app e tool digitali: soluzioni moderne, veloci e accessibili. Preventivi chiari e consegna in 1–3 settimane." />
-  <link rel="canonical" href="https://your-sorted-site.vercel.app/" />
+  <title>Sorted • Siti e strumenti digitali su misura a Parma</title>
+  <meta name="description" content="Creo siti moderni, tool e agende digitali che semplificano il lavoro di attività locali e freelance. Esperienze veloci, chiare e su misura." />
+  <link rel="canonical" href="https://sorted-beryl.vercel.app/" />
 
-  <!-- Hreflang -->
-  <link rel="alternate" href="https://your-sorted-site.vercel.app/" hreflang="it" />
-  <link rel="alternate" href="https://your-sorted-site.vercel.app/en" hreflang="en" />
-  <link rel="alternate" href="https://your-sorted-site.vercel.app/" hreflang="x-default" />
-
-  <!-- Theme + Icons -->
-  <meta name="theme-color" content="#0f1220" />
+  <meta name="theme-color" content="#0b0f1a" />
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sorted — Web Development" />
-  <meta property="og:description" content="Websites • Apps • Business Tools. Soluzioni smart e veloci." />
-  <meta property="og:image" content="https://your-sorted-site.vercel.app/assets/og-image.jpg" />
-  <meta property="og:url" content="https://your-sorted-site.vercel.app/" />
+  <meta property="og:title" content="Sorted — Strumenti digitali su misura" />
+  <meta property="og:description" content="Siti moderni, tool e agende digitali che fanno ordine nel tuo business." />
+  <meta property="og:image" content="https://sorted-beryl.vercel.app/assets/og-image.jpg" />
+  <meta property="og:url" content="https://sorted-beryl.vercel.app/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Performance hints -->
-  <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preload" as="image" href="assets/hero.png" />
-
-  <!-- Cookie consent -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="265024f2-8279-421f-ac93-13d23af25373" data-blockingmode="auto" defer></script>
-
-  <!-- Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.defer=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K3QWFV74');
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Sorted",
-    "url": "https://your-sorted-site.vercel.app/",
-    "logo": "https://your-sorted-site.vercel.app/assets/hero.png",
-    "email": "sorted.parma@gmail.com",
-    "sameAs": [
-      "https://github.com/GabrieleGiardino",
-      "https://www.linkedin.com/in/gabriele-giardino-280617319/"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "sorted.parma@gmail.com",
-      "availableLanguage": ["it","en"]
-    }]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://your-sorted-site.vercel.app/",
-    "name": "Sorted",
-    "inLanguage": ["it","en"]
-  }
-  </script>
 </head>
 
 <body>
-  <!-- Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3QWFV74" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <a class="skip-link" href="#content" data-i18n="a11y.skip">Salta al contenuto</a>
-
-  <!-- HEADER -->
   <header class="header">
     <div class="container nav">
-      <a href="#" class="brand" aria-label="Sorted, home">
-        <img class="brand-logo" src="assets/hero.png" alt="Logo Sorted" width="160" height="40" decoding="async">
+      <a href="#top" class="brand" aria-label="Sorted home">
+        <img class="brand-logo" src="assets/hero.png" alt="Logo Sorted" width="140" height="36" decoding="async">
+        <span class="brand-tag">Ordine digitale</span>
       </a>
 
-      <!-- Bottone hamburger -->
       <button class="hamburger" aria-controls="mainmenu" aria-expanded="false" aria-label="Apri/chiudi menu">
         <span></span><span></span><span></span>
       </button>
 
-      <!-- Toggle lingua -->
-      <button id="langToggle" class="btn btn--ghost" type="button" aria-label="Cambia lingua">EN</button>
-
       <nav aria-label="Navigazione principale">
         <ul id="mainmenu" class="menu">
-          <li><a href="#services" data-i18n="nav.services">Servizi</a></li>
-          <li><a href="#work" data-i18n="nav.work">Lavori</a></li>
-          <li><a href="#contact" class="btn btn--primary" data-i18n="nav.contact">Contattaci</a></li>
+          <li><a href="#soluzioni">Soluzioni</a></li>
+          <li><a href="#progetti">Progetti</a></li>
+          <li><a href="#metodo">Metodo</a></li>
+          <li><a href="#chi-sono">Chi sono</a></li>
+          <li><a class="btn btn--primary" href="#contatti">Parliamone</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="content">
-    <!-- HERO -->
+  <main id="top">
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <h1 data-i18n="hero.title">Websites • Apps • Tools</h1>
-          <p class="lead" data-i18n="hero.lead">
-            Costruiamo <strong>soluzioni digitali</strong> pulite, veloci e accessibili. Dal sito vetrina a piccoli gestionali su misura.
+          <p class="eyebrow">Sorted / Parma</p>
+          <h1>Metto ordine nel tuo business digitale.</h1>
+          <p class="lead">
+            Creo <strong>siti moderni</strong>, tool e agende digitali che semplificano il lavoro di attività locali e freelance.
+            Zero fumo, solo risultati chiari e veloci.
           </p>
 
           <div class="hero__cta">
-            <a href="#work" class="btn" data-i18n="hero.ctaWork">Guarda i lavori</a>
-            <a href="mailto:sorted.parma@gmail.com" class="btn btn--ghost" data-i18n="hero.ctaWrite">Scrivici</a>
+            <a class="btn btn--primary" href="#contatti">Prenota una consulenza</a>
+            <a class="btn btn--ghost" href="#progetti">Guarda i progetti</a>
           </div>
 
-          <ul class="stack" aria-label="Tecnologie utilizzate">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>Node.js</li>
-          </ul>
+          <div class="stats">
+            <div>
+              <span class="stat__num">1-3</span>
+              <span class="stat__label">settimane di consegna</span>
+            </div>
+            <div>
+              <span class="stat__num">100%</span>
+              <span class="stat__label">su misura</span>
+            </div>
+            <div>
+              <span class="stat__num">+30</span>
+              <span class="stat__label">giorni di supporto</span>
+            </div>
+          </div>
 
-          <!-- MEDIA HERO -->
-          <div class="hero__media" aria-label="Anteprima video Sorted">
-            <img src="assets/hero.png" alt="Esempio di interfaccia Sorted" width="1200" height="700">
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee__track">
+              <span>WEB DESIGN</span>
+              <span>TOOLS</span>
+              <span>PRENOTAZIONI</span>
+              <span>SEO</span>
+              <span>UX</span>
+              <span>WEB APP</span>
+              <span class="marquee__gap"></span>
+              <span>WEB DESIGN</span>
+              <span>TOOLS</span>
+              <span>PRENOTAZIONI</span>
+              <span>SEO</span>
+              <span>UX</span>
+              <span>WEB APP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__media" aria-label="Preview progetto">
+          <div class="media-frame">
             <video class="hero__video" playsinline muted autoplay loop preload="metadata" poster="assets/hero.png">
               <source src="assets/sorted3.mp4" type="video/mp4">
             </video>
-            <button class="audio-toggle" type="button" aria-label="Attiva audio" data-i18n-video="unmute">Unmute</button>
-            <button class="video-toggle" type="button" aria-label="Metti in pausa il video" data-i18n-video="pause">Pause</button>
+          </div>
+          <div class="floating">
+            <span class="chip">Agenda smart</span>
+            <span class="chip">Form veloci</span>
+            <span class="chip">Dashboard</span>
+            <span class="chip">Siti vetrina</span>
+          </div>
+          <div class="orbs">
+            <span class="orb orb--a"></span>
+            <span class="orb orb--b"></span>
+            <span class="orb orb--c"></span>
           </div>
         </div>
-
-        <!-- BOX LATERALE -->
-        <aside class="hero__card" aria-label="Perché Sorted">
-          <p class="badge" data-i18n="badges.tagline">THINK IT, SAY IT, SORTED</p>
-          <p class="badge" data-i18n="badges.open">✅ Disponibile per nuovi progetti</p>
-
-          <h3 class="h3" data-i18n="about.title">Chi siamo</h3>
-          <p class="mini" style="margin:0 0 10px;" data-i18n="about.body">
-            Siamo <strong>Sorted</strong>, una web digital agency di giovani developer formati in
-            <strong>Epicode</strong>. Programmiamo siti, app e piccoli tool per PMI e freelance. Niente fronzoli:
-            obiettivi chiari, esecuzione rapida.
-          </p>
-
-          <h3 class="h3" data-i18n="why.title">Perché sceglierci</h3>
-          <ul class="bullets">
-            <li data-i18n="why.fast"><strong>Veloci</strong>: consegna 1–3 settimane</li>
-            <li data-i18n="why.clear"><strong>Trasparenti</strong>: preventivi chiari, zero sorprese</li>
-            <li data-i18n="why.usability"><strong>Usabilità & Responsive</strong>: alla base dei nostri progetti</li>
-            <li data-i18n="why.stack"><strong>Stack moderno</strong>: HTML/CSS/JS, React, Node</li>
-            <li data-i18n="why.support"><strong>Supporto</strong>: 30 giorni post-lancio</li>
-          </ul>
-
-          <h3 class="h3" data-i18n="included.title">Inclusi nel prezzo</h3>
-          <ul class="bullets">
-            <li data-i18n="included.deploy"><strong>Deploy</strong>: su Vercel o Heroku</li>
-            <li data-i18n="included.help"><strong>Assistenza</strong>: per acquisto e collegamento domini</li>
-            <li data-i18n="included.flex"><strong>Flessibilità</strong>: proponiamo soluzioni su misura</li>
-            <li data-i18n="included.hard"><strong>Stacanovismo</strong>: cambiamenti o extra non ci spaventano</li>
-          </ul>
-
-          <div class="cta-inline">
-            <a class="btn btn--primary" href="mailto:sorted.parma@gmail.com" data-i18n="cta.talk">Parliamone</a>
-            <a class="btn btn--ghost" href="#work" data-i18n="cta.view">Guarda i lavori</a>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="section">
+    <section id="soluzioni" class="section">
       <div class="container">
         <div class="section__head">
-          <h2 data-i18n="services.h2">Servizi</h2>
-          <p class="hint" data-i18n="services.hint">Semplici, mirati, efficaci</p>
+          <h2>Problemi reali che risolvo</h2>
+          <p>Non vendo solo siti. Creo strumenti che ti fanno lavorare meglio.</p>
         </div>
         <div class="grid-3">
-          <article class="card">
-            <h3 data-i18n="services.web.title">Siti web</h3>
-            <p data-i18n="services.web.body">Landing e vetrine responsive ottimizzate per SEO e velocità. Non solo belle: utili al business.</p>
+          <article class="card reveal">
+            <h3>Pochi contatti dal web</h3>
+            <p>Riprogetto la tua presenza online per trasformare le visite in richieste reali.</p>
           </article>
-          <article class="card">
-            <h3 data-i18n="services.app.title">Web app</h3>
-            <p data-i18n="services.app.body">Piccoli gestionali e dashboard con interfacce snelle e piacevoli, in linea con le attese attuali.</p>
+          <article class="card reveal">
+            <h3>Appuntamenti nel caos</h3>
+            <p>Agende digitali e reminder automatici per non perdere tempo e clienti.</p>
           </article>
-          <article class="card">
-            <h3 data-i18n="services.tools.title">Business Tools</h3>
-            <p data-i18n="services.tools.body">Form, integrazioni e automazioni per snellire il lavoro e dire addio alle scartoffie.</p>
+          <article class="card reveal">
+            <h3>Processi lenti</h3>
+            <p>Tool su misura per evitare fogli, chat infinite e passaggi inutili.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- WORK -->
-    <section id="work" class="section">
+    <section class="section alt">
       <div class="container">
         <div class="section__head">
-          <h2 data-i18n="work.h2">Lavori</h2>
-          <p class="hint" data-i18n="work.hint">Progetti trasparenti, con caratteristiche pensate ad hoc. Clicca “Demo” sotto ogni scheda per saperne di più.</p>
+          <h2>Cosa creo per te</h2>
+          <p>Dal sito vetrina all'app interna: tutto su misura.</p>
         </div>
+        <div class="grid-3">
+          <article class="card feature reveal">
+            <div class="icon">01</div>
+            <h3>Siti vetrina moderni</h3>
+            <p>Immagine professionale, caricamento rapido e testi che parlano al tuo cliente.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">02</div>
+            <h3>Landing che convertono</h3>
+            <p>Una pagina chiara, con una sola direzione: il contatto.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">03</div>
+            <h3>Tool & agende smart</h3>
+            <p>Piccoli gestionali e prenotazioni online che ti semplificano la vita.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="progetti" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Progetti selezionati</h2>
+          <p>Ogni lavoro nasce da un problema e finisce con un risultato concreto.</p>
+        </div>
         <div class="grid-2">
-          <!-- Q Beauty -->
-          <article class="card">
-            <small>2025</small>
-            <h3>Q Beauty</h3>
-            <p data-i18n="projects.qbeauty">
-              Q Beauty è una vetrina digitale per il settore beauty e wellness, pensata per valorizzare prodotti esclusivi
-              e facilitarne la vendita. Include un form contatti dedicato. Tecnologie: React Native, design responsive
-              ottimizzato per prestazioni, SEO ed esperienza fluida su desktop, tablet e smartphone.
-            </p>
-            <div class="tags"><span>React</span><span>React Native</span></div>
-            <div class="links">
-              <a class="demo-link" href="#"
-                data-images='["assets/screen1.png","assets/screen2.png","assets/screen3.png","assets/screen4.png","assets/screen5.png","assets/screen6.png"]'>Demo</a>
-              <a href="https://github.com/GabrieleGiardino" target="_blank" rel="noopener">GitHub</a>
+          <article class="project reveal">
+            <img src="assets/NSG.png" alt="Anteprima progetto Non Solo Gomme" width="1200" height="700" loading="lazy">
+            <div class="project__body">
+              <small>2024 • Sito vetrina</small>
+              <h3>Non Solo Gomme</h3>
+              <p>Sito moderno per gommista con recensioni rapide, form contatti e pagine dedicate alle novità.</p>
+              <div class="tags"><span>React</span><span>Vite</span><span>SEO</span></div>
             </div>
           </article>
-
-          <!-- Rainoo -->
-          <article class="card">
-            <small>2025</small>
-            <h3>Rainoo</h3>
-            <p data-i18n="projects.rainoo">
-              App Vite + React per il noleggio di ombrelli, mobile-first e completamente responsive.
-              Login email/Google, pagamenti Stripe, mappa stazioni e rating dinamici in tempo reale.
-              Front-end React (Vite), back-end MongoDB con API per auth, pagamenti e dati live.
-            </p>
-            <div class="tags"><span>React</span><span>Vite</span><span>MongoDB</span></div>
-            <div class="links">
-              <a class="demo-link" href="#"
-                data-images='["assets/rainoo.png","assets/rainoo1.png","assets/rainoo2.png","assets/rainoo3.png","assets/rainoo4.png","assets/rainoo5.png","assets/rainoo6.png"]'>Demo</a>
-              <a href="https://github.com/GabrieleGiardino" target="_blank" rel="noopener">GitHub</a>
+          <article class="project reveal">
+            <img src="assets/rainoo.png" alt="Anteprima progetto Rainoo" width="1200" height="700" loading="lazy">
+            <div class="project__body">
+              <small>2025 • Web app</small>
+              <h3>Rainoo</h3>
+              <p>App per noleggio ombrelli con mappe, pagamenti Stripe e interfaccia mobile-first.</p>
+              <div class="tags"><span>React</span><span>MongoDB</span><span>Stripe</span></div>
             </div>
           </article>
-
-          <!-- Non Solo Gomme -->
-          <article class="card">
-            <small>2024</small>
-            <h3>Non Solo Gomme</h3>
-            <p data-i18n="projects.nsg">
-              Sito moderno per gommista con pulsanti rapidi per recensioni, form contatti e pagine su storia e novità.
-              Sviluppo React + Vite, completamente responsive, con animazioni leggere e fade-in.
-            </p>
-            <div class="tags"><span>React</span><span>Vite</span></div>
-            <div class="links">
-              <a class="demo-link" href="#"
-                data-images='["assets/NSG.png","assets/NSG1.png","assets/NSG2.png","assets/NSG3.png","assets/NSG4.png","assets/NSG5.png","assets/NSG6.png","assets/NSG7.png"]'>Demo</a>
-              <a href="https://github.com/GabrieleGiardino" target="_blank" rel="noopener">GitHub</a>
+          <article class="project reveal">
+            <img src="assets/BC1.png" alt="Anteprima progetto Agenda dinamica" width="1200" height="700" loading="lazy">
+            <div class="project__body">
+              <small>2024 • Tool interno</small>
+              <h3>Agenda Dinamica</h3>
+              <p>Gestione appuntamenti con reminder e storico clienti per attività locali.</p>
+              <div class="tags"><span>React</span><span>UX</span><span>Automation</span></div>
             </div>
           </article>
-
-          <!-- Agenda dinamica -->
-          <article class="card">
-            <small>2024</small>
-            <h3 data-i18n="projects.agenda.title">Agenda Dinamica per prenotazioni</h3>
-            <p data-i18n="projects.agenda.body">
-              Format adattabile per attività con agenda dinamica: registra clienti e appuntamenti con promemoria via email o WhatsApp,
-              gestione servizi, modifiche e cancellazioni. Area cliente con storico e futuri appuntamenti.
-            </p>
-            <div class="tags"><span>React</span><span>Vite</span></div>
-            <div class="links">
-              <a class="demo-link" href="#"
-                data-images='["assets/BC.png","assets/BC1.png","assets/BC2.png","assets/BC3.png","assets/BC4.png","assets/BC5.png"]'>Demo</a>
-              <a href="https://github.com/GabrieleGiardino" target="_blank" rel="noopener">GitHub</a>
+          <article class="project reveal">
+            <img src="assets/screen1.png" alt="Anteprima progetto Q Beauty" width="1200" height="700" loading="lazy">
+            <div class="project__body">
+              <small>2025 • E-commerce vetrina</small>
+              <h3>Q Beauty</h3>
+              <p>Vetrina digitale per prodotti beauty, form contatti dedicato e layout premium.</p>
+              <div class="tags"><span>React</span><span>Design</span><span>Performance</span></div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
+    <section id="metodo" class="section alt">
       <div class="container">
         <div class="section__head">
-          <h2 data-i18n="contact.h2">Contatti</h2>
-          <p class="hint" data-i18n="contact.p">Contattaci anche solo per una consulenza. La prima è GRATUITA, senza impegno.</p>
+          <h2>Metodo semplice, risultati solidi</h2>
+          <p>Tre step chiari, zero giri di parole.</p>
         </div>
-        <div class="contact">
-          <a class="btn btn--primary" href="mailto:sorted.parma@gmail.com">sorted.parma@gmail.com</a>
-          <a class="btn btn--ghost" href="https://www.linkedin.com/in/gabriele-giardino-280617319/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn btn--ghost" href="https://github.com/GabrieleGiardino" target="_blank" rel="noopener">GitHub ↗</a>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Ascolto e strategia</h3>
+            <p>Capisco obiettivi e problemi reali, poi definisco una soluzione concreta.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">02</span>
+            <h3>Design e sviluppo</h3>
+            <p>Interfaccia pulita, veloce e pensata per i tuoi clienti.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Lancio e supporto</h3>
+            <p>Mettiamo online e rimango disponibile per ottimizzare e migliorare.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chi-sono" class="section">
+      <div class="container about">
+        <div class="about__media reveal">
+          <img src="assets/hero.png" alt="Ritratto Sorted" width="800" height="900" loading="lazy">
+        </div>
+        <div class="about__copy reveal">
+          <h2>Piacere, sono Gabriele</h2>
+          <p>
+            Sono uno sviluppatore web di Parma. Lavoro con attività locali e professionisti per creare strumenti digitali
+            utili, belli e facili da usare. Il mio obiettivo è far lavorare meglio le persone, non complicare.
+          </p>
+          <div class="about__cta">
+            <a class="btn btn--primary" href="#contatti">Raccontami il tuo progetto</a>
+            <a class="btn btn--ghost" href="mailto:sorted.parma@gmail.com">Scrivimi</a>
+            <a class="btn btn--ghost btn--whatsapp" href="https://wa.me/3938276064?text=Ciao%20Gabriele%2C%20ho%20un%20progetto%20web%20e%20vorrei%20una%20consulenza." target="_blank" rel="noopener">
+              <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M16 3C8.832 3 3 8.664 3 15.82c0 2.78.92 5.338 2.48 7.406L4 29l5.98-1.56A12.86 12.86 0 0 0 16 28.66c7.168 0 13-5.664 13-12.84C29 8.664 23.168 3 16 3zm0 23.08c-2.08 0-4.02-.548-5.7-1.5l-.41-.24-3.54.92.94-3.42-.26-.44A10.4 10.4 0 0 1 5.6 15.82c0-5.76 4.72-10.44 10.4-10.44s10.4 4.68 10.4 10.44-4.72 10.44-10.4 10.44zm5.98-7.7c-.32-.16-1.9-.94-2.2-1.04-.3-.12-.52-.16-.74.16-.22.32-.86 1.04-1.06 1.26-.2.22-.4.24-.72.08-.32-.16-1.36-.5-2.6-1.6-.96-.84-1.6-1.88-1.78-2.2-.18-.32-.02-.5.14-.66.14-.14.32-.4.48-.6.16-.2.22-.32.34-.54.12-.22.06-.42-.02-.58-.08-.16-.74-1.8-1.02-2.46-.26-.62-.52-.52-.74-.54h-.64c-.22 0-.58.08-.88.42-.3.34-1.16 1.12-1.16 2.74 0 1.62 1.18 3.18 1.34 3.4.16.22 2.32 3.54 5.62 4.96.78.34 1.4.54 1.88.7.78.24 1.5.2 2.06.12.62-.1 1.9-.78 2.16-1.54.26-.76.26-1.42.18-1.54-.08-.12-.3-.2-.62-.36z"/>
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="section cta">
+      <div class="container">
+        <div class="cta__box reveal">
+          <h2>Hai un progetto in mente?</h2>
+          <p>Una consulenza iniziale e gratuita. Ti dico subito cosa ha senso fare.</p>
+          <div class="cta__actions">
+            <a class="btn btn--primary" href="mailto:sorted.parma@gmail.com">sorted.parma@gmail.com</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/gabriele-giardino-280617319/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn--ghost" href="https://github.com/GabrieleGiardino" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>
-        © <span id="year"></span>
-        <span data-i18n="footer.brand">Sorted.</span>
-        <span data-i18n="footer.rights">Tutti i diritti riservati.</span>
-      </p>
+      <p>© <span id="year"></span> Sorted. Tutti i diritti riservati.</p>
     </div>
   </footer>
 
-  <!-- MODAL DEMO -->
-  <div id="demoModal" class="demo-modal" aria-hidden="true" role="dialog" aria-label="Anteprima progetto">
-    <div class="demo-dialog">
-      <button class="demo-close" aria-label="Chiudi anteprima">✕</button>
-      <div class="demo-iframe-wrap">
-        <iframe id="demoFrame" title="Anteprima live" loading="lazy"></iframe>
-      </div>
-      <div class="demo-gallery" hidden>
-        <button class="demo-prev" aria-label="Immagine precedente">‹</button>
-        <img id="demoImg" alt="Screenshot progetto">
-        <button class="demo-next" aria-label="Immagine successiva">›</button>
-        <div class="demo-dots" id="demoDots"></div>
-      </div>
-    </div>
-    <div class="demo-backdrop"></div>
-  </div>
-
-  <!-- Script: tutto in fondo e con defer dove serve -->
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // i18n semplice (IT/EN)
-    const __i18n = {
-      current: 'it',
-      dict: {
-        it: {
-          'a11y.skip': 'Salta al contenuto',
-          nav: { services: 'Servizi', work: 'Lavori', contact: 'Contattaci' },
-          hero: {
-            title: 'Websites • Apps • Tools',
-            lead: 'Costruiamo <strong>soluzioni digitali</strong> pulite, veloci e accessibili. Dal sito vetrina a piccoli gestionali su misura.',
-            ctaWork: 'Guarda i lavori',
-            ctaWrite: 'Scrivici'
-          },
-          badges: { tagline: 'THINK IT, SAY IT, SORTED', open: '✅ Disponibile per nuovi progetti' },
-          about: {
-            title: 'Chi siamo',
-            body: 'Siamo <strong>Sorted</strong>, una web digital agency di giovani developer formati in <strong>Epicode</strong>. Programmiamo siti, app e piccoli tool per PMI e freelance. Niente fronzoli: obiettivi chiari, esecuzione rapida.'
-          },
-          why: {
-            title: 'Perché sceglierci',
-            fast: '<strong>Veloci</strong>: consegna 1–3 settimane',
-            clear: '<strong>Trasparenti</strong>: preventivi chiari, zero sorprese',
-            usability: '<strong>Usabilità & Responsive</strong>: alla base dei nostri progetti',
-            stack: '<strong>Stack moderno</strong>: HTML/CSS/JS, React, Node',
-            support: '<strong>Supporto</strong>: 30 giorni post-lancio'
-          },
-          included: {
-            title: 'Inclusi nel prezzo',
-            deploy: '<strong>Deploy</strong>: su Vercel o Heroku',
-            help: '<strong>Assistenza</strong>: per acquisto e collegamento domini',
-            flex: '<strong>Flessibilità</strong>: proponiamo soluzioni su misura',
-            hard: '<strong>Stacanovismo</strong>: cambiamenti o extra non ci spaventano'
-          },
-          cta: { talk: 'Parliamone', view: 'Guarda i lavori' },
-          services: {
-            h2: 'Servizi',
-            hint: 'Semplici, mirati, efficaci',
-            web: { title: 'Siti web', body: 'Landing e vetrine responsive ottimizzate per SEO e velocità. Non solo belle: utili al business.' },
-            app: { title: 'Web app', body: 'Piccoli gestionali e dashboard con interfacce snelle e piacevoli, in linea con le attese attuali.' },
-            tools: { title: 'Business Tools', body: 'Form, integrazioni e automazioni per snellire il lavoro e dire addio alle scartoffie.' }
-          },
-          work: {
-            h2: 'Lavori',
-            hint: 'Progetti trasparenti, con caratteristiche pensate ad hoc. Clicca “Demo” sotto ogni scheda per saperne di più.'
-          },
-          projects: {
-            qbeauty: 'Q Beauty è una vetrina digitale per il settore beauty e wellness, pensata per valorizzare prodotti esclusivi e facilitarne la vendita. Include un form contatti dedicato. Tecnologie: React Native e design responsive ottimizzato per performance, SEO ed esperienza fluida.',
-            rainoo: 'Rainoo è un’app Vite + React per il noleggio di ombrelli, mobile-first e completamente responsive. Email/Google login, Stripe, mappa stazioni e rating dinamici in tempo reale. Front-end React (Vite), back-end MongoDB.',
-            nsg: 'Sito moderno per gommista con recensioni rapide, form contatti e pagine su storia e novità. Sviluppo React + Vite, responsive, con animazioni e fade-in.',
-            agenda: { title: 'Agenda Dinamica per prenotazioni', body: 'Format adattabile: clienti/appuntamenti con promemoria via email/WhatsApp, gestione servizi e modifiche. Area cliente con storico e futuri appuntamenti.' }
-          },
-          contact: { h2: 'Contatti', p: 'Contattaci anche solo per una consulenza. La prima è GRATUITA, senza impegno.' },
-          video: { play: 'Play', pause: 'Pause', playAria: 'Riproduci il video', pauseAria: 'Metti in pausa il video', mute: 'Mute', unmute: 'Unmute', muteAria: 'Disattiva audio', unmuteAria: 'Attiva audio' },
-          footer: { brand: 'Sorted.', rights: 'Tutti i diritti riservati.' }
-        },
-        en: {
-          'a11y.skip': 'Skip to content',
-          nav: { services: 'Services', work: 'Work', contact: 'Contact' },
-          hero: {
-            title: 'Websites • Apps • Tools',
-            lead: 'We build <strong>clean, fast and accessible</strong> digital solutions. From landing pages to lightweight custom tools.',
-            ctaWork: 'View work',
-            ctaWrite: 'Write us'
-          },
-          badges: { tagline: 'THINK IT, SAY IT, SORTED', open: '✅ Open for new projects' },
-          about: {
-            title: 'About us',
-            body: 'We are <strong>Sorted</strong>, a small web digital agency trained at <strong>Epicode</strong>. We craft websites, apps and small tools for SMBs and freelancers. No fluff: clear goals, fast execution.'
-          },
-          why: {
-            title: 'Why choose us',
-            fast: '<strong>Fast</strong>: delivery in 1–3 weeks',
-            clear: '<strong>Transparent</strong>: clear quotes, no surprises',
-            usability: '<strong>Usability & Responsive</strong>: our foundation',
-            stack: '<strong>Modern stack</strong>: HTML/CSS/JS, React, Node',
-            support: '<strong>Support</strong>: 30 days post-launch'
-          },
-          included: {
-            title: 'Included in the price',
-            deploy: '<strong>Deploy</strong>: to Vercel or Heroku',
-            help: '<strong>Assistance</strong>: domain purchase & wiring',
-            flex: '<strong>Flexibility</strong>: tailor-made solutions',
-            hard: '<strong>Work ethic</strong>: changes & extras don’t scare us'
-          },
-          cta: { talk: 'Let’s talk', view: 'View work' },
-          services: {
-            h2: 'Services',
-            hint: 'Simple, focused, effective',
-            web: { title: 'Websites', body: 'Responsive landing pages and showcases, SEO-ready and fast.' },
-            app: { title: 'Web apps', body: 'Lightweight dashboards and mini-CRMs with clean UIs.' },
-            tools: { title: 'Business tools', body: 'Forms, integrations and automations to streamline your workflow.' }
-          },
-          work: {
-            h2: 'Work',
-            hint: 'Transparent projects with unique traits. Click “Demo” below each card to learn more.'
-          },
-          projects: {
-            qbeauty: 'Q Beauty is a digital showcase for the beauty & wellness space. Dedicated contact form, React Native, fully responsive and SEO-minded.',
-            rainoo: 'Rainoo is a Vite + React umbrella rental app. Email/Google login, Stripe, station map and real-time ratings. React front-end, MongoDB back-end.',
-            nsg: 'Modern tyre-service website with quick reviews, contact form and extra pages. React + Vite, responsive with tasteful animations.',
-            agenda: { title: 'Dynamic Booking Agenda', body: 'Register clients and appointments with email/WhatsApp reminders. Client area with past and upcoming bookings.' }
-          },
-          contact: { h2: 'Contacts', p: 'Reach out even just for a first FREE consultation.' },
-          video: { play: 'Play', pause: 'Pause', playAria: 'Play video', pauseAria: 'Pause video', mute: 'Mute', unmute: 'Unmute', muteAria: 'Mute audio', unmuteAria: 'Unmute audio' },
-          footer: { brand: 'Sorted.', rights: 'All rights reserved.' }
-        }
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.getElementById('mainmenu');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('is-open');
+    });
+
+    const video = document.querySelector('.hero__video');
+    const mediaFrame = document.querySelector('.media-frame');
+    mediaFrame.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
       }
-    };
-    window.__i18n = __i18n;
+    });
 
-    function applyI18n(lang) {
-      __i18n.current = lang;
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n').split('.');
-        let val = __i18n.dict[lang];
-        key.forEach(k => { if (val) val = val[k]; });
-        if (typeof val === 'string') el.innerHTML = val;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
       });
+    }, { threshold: 0.15 });
 
-      const btn = document.getElementById('langToggle');
-      if (btn) {
-        btn.textContent = lang === 'it' ? 'EN' : 'IT';
-        btn.setAttribute('aria-label', lang === 'it' ? 'Switch language' : 'Cambia lingua');
-      }
-
-      // sync video button labels
-      const vBtn = document.querySelector('.video-toggle');
-      const aBtn = document.querySelector('.audio-toggle');
-      const video = document.querySelector('.hero__video');
-      if (vBtn && video) {
-        const paused = video.paused;
-        vBtn.textContent = paused ? __i18n.dict[lang].video.play : __i18n.dict[lang].video.pause;
-        vBtn.setAttribute('aria-label', paused ? __i18n.dict[lang].video.playAria : __i18n.dict[lang].video.pauseAria);
-      }
-      if (aBtn && video) {
-        const muted = video.muted;
-        aBtn.textContent = muted ? __i18n.dict[lang].video.unmute : __i18n.dict[lang].video.mute;
-        aBtn.setAttribute('aria-label', muted ? __i18n.dict[lang].video.unmuteAria : __i18n.dict[lang].video.muteAria);
-      }
-
-      // hamburger aria-label
-      const hbBtn = document.querySelector('.hamburger');
-      if (hbBtn) {
-        hbBtn.setAttribute('aria-label', lang === 'it' ? 'Apri/chiudi menu' : 'Open/close menu');
-      }
-
-      localStorage.setItem('lang', lang);
-    }
-
-    // init lingua
-    (function initLang() {
-      const saved = localStorage.getItem('lang');
-      const prefer = saved || (navigator.language || 'it').slice(0, 2);
-      applyI18n(prefer === 'en' ? 'en' : 'it');
-    })();
-
-    // click toggle lingua
-    document.getElementById('langToggle')?.addEventListener('click', () => {
-      applyI18n(__i18n.current === 'it' ? 'en' : 'it');
-    });
-
-    // Play/Pause + Mute/Unmute video hero
-    document.querySelectorAll('.hero__media').forEach(media => {
-      const v = media.querySelector('.hero__video');
-      const btnPlay = media.querySelector('.video-toggle');
-      const btnAudio = media.querySelector('.audio-toggle');
-      if (!v) return;
-
-      if (btnPlay) {
-        btnPlay.addEventListener('click', () => {
-          if (v.paused) {
-            v.play();
-          } else {
-            v.pause();
-          }
-          const lang = __i18n.current;
-          btnPlay.textContent = v.paused ? __i18n.dict[lang].video.play : __i18n.dict[lang].video.pause;
-          btnPlay.setAttribute('aria-label', v.paused ? __i18n.dict[lang].video.playAria : __i18n.dict[lang].video.pauseAria);
-        });
-      }
-
-      if (btnAudio) {
-        btnAudio.addEventListener('click', () => {
-          v.muted = !v.muted;
-          if (!v.paused) v.play().catch(() => {});
-          const lang = __i18n.current;
-          btnAudio.textContent = v.muted ? __i18n.dict[lang].video.unmute : __i18n.dict[lang].video.mute;
-          btnAudio.setAttribute('aria-label', v.muted ? __i18n.dict[lang].video.unmuteAria : __i18n.dict[lang].video.muteAria);
-        });
-      }
-    });
-
-    // Modal Demo (iframe o galleria)
-    (function () {
-      const modal = document.getElementById('demoModal');
-      const iframeWrap = modal.querySelector('.demo-iframe-wrap');
-      const galleryWrap = modal.querySelector('.demo-gallery');
-      const frame = document.getElementById('demoFrame');
-      const imgEl = document.getElementById('demoImg');
-      const dots = document.getElementById('demoDots');
-      const closeBtn = modal.querySelector('.demo-close');
-      let images = [], index = 0, lastFocus = null;
-
-      function openModal() { lastFocus = document.activeElement; modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; closeBtn.focus(); }
-      function closeModal() { modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; frame.src = ''; images = []; index = 0; dots.innerHTML = ''; iframeWrap.style.display = 'grid'; galleryWrap.hidden = true; if (lastFocus) lastFocus.focus(); }
-
-      closeBtn.addEventListener('click', closeModal);
-      modal.querySelector('.demo-backdrop').addEventListener('click', closeModal);
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
-
-      function renderImage() { imgEl.src = images[index]; [...dots.children].forEach((d, i) => d.setAttribute('aria-current', i === index)); }
-      modal.querySelector('.demo-prev').addEventListener('click', () => { index = (index - 1 + images.length) % images.length; renderImage(); });
-      modal.querySelector('.demo-next').addEventListener('click', () => { index = (index + 1) % images.length; renderImage(); });
-
-      document.querySelectorAll('.demo-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const url = link.dataset.url;
-          const imgs = link.dataset.images;
-
-          if (url) {
-            iframeWrap.style.display = 'grid';
-            galleryWrap.hidden = true;
-            frame.src = url;
-            openModal();
-          } else if (imgs) {
-            try { images = JSON.parse(imgs); } catch { images = []; }
-            if (!images.length) return;
-            iframeWrap.style.display = 'none';
-            galleryWrap.hidden = false;
-            dots.innerHTML = images.map((_, i) => `<button ${i === 0 ? 'aria-current="true"' : ''} aria-label="Vai a immagine ${i + 1}"></button>`).join('');
-            [...dots.children].forEach((d, i) => d.addEventListener('click', () => { index = i; renderImage(); }));
-            index = 0; renderImage(); openModal();
-          }
-        });
-      });
-    })();
-
-    /* Toggle hamburger */
-    const hb = document.querySelector('.hamburger');
-    hb?.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      hb.setAttribute('aria-expanded', String(open));
-    });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
