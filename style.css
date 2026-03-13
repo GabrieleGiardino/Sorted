@@ -406,6 +406,48 @@ a {
   opacity: 0.8;
 }
 
+.carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.carousel__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 1fr);
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 2px 10px;
+  scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__track > .card {
+  scroll-snap-align: start;
+}
+
+.carousel__btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--outline);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .icon {
   font-weight: 700;
   color: var(--accent);
@@ -687,6 +729,14 @@ a {
 
   .cta__box {
     padding: 24px;
+  }
+
+  .carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel__btn {
+    display: none;
   }
 }
 

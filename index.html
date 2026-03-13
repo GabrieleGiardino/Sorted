@@ -151,22 +151,51 @@
           <h2>Cosa creo per te</h2>
           <p>Dal sito vetrina all'app interna: tutto su misura.</p>
         </div>
-        <div class="grid-3">
-          <article class="card feature reveal">
-            <div class="icon">01</div>
-            <h3>Siti vetrina moderni</h3>
-            <p>Immagine professionale, caricamento rapido e testi che parlano al tuo cliente.</p>
-          </article>
-          <article class="card feature reveal">
-            <div class="icon">02</div>
-            <h3>Landing che convertono</h3>
-            <p>Una pagina chiara, con una sola direzione: il contatto.</p>
-          </article>
-          <article class="card feature reveal">
-            <div class="icon">03</div>
-            <h3>Tool & agende smart</h3>
-            <p>Piccoli gestionali e prenotazioni online che ti semplificano la vita.</p>
-          </article>
+        <div class="carousel">
+          <button class="carousel__btn" type="button" data-dir="prev" aria-label="Scorri a sinistra">‹</button>
+          <div class="carousel__track" aria-label="Servizi in evidenza">
+            <article class="card feature reveal">
+              <div class="icon">01</div>
+              <h3>Siti vetrina moderni</h3>
+              <p>Immagine professionale, caricamento rapido e testi che parlano al tuo cliente.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">02</div>
+              <h3>Landing che convertono</h3>
+              <p>Una pagina chiara, con una sola direzione: il contatto.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">03</div>
+              <h3>Tool & agende smart</h3>
+              <p>Piccoli gestionali e prenotazioni online che ti semplificano la vita.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">04</div>
+              <h3>E-commerce</h3>
+              <p>Shop online veloci e chiari, con catalogo semplice da gestire.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">05</div>
+              <h3>Rebrand digitale</h3>
+              <p>Rinfresco sito e interfacce per un look moderno e coerente.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">06</div>
+              <h3>Shopify Shop</h3>
+              <p>Setup completo Shopify, tema, prodotti e ottimizzazioni.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">07</div>
+              <h3>Tool su misura</h3>
+              <p>Strumenti interni personalizzati per processi specifici.</p>
+            </article>
+            <article class="card feature reveal">
+              <div class="icon">08</div>
+              <h3>Sistemi di pagamento</h3>
+              <p>Integrazione Stripe, PayPal o pagamenti online dedicati.</p>
+            </article>
+          </div>
+          <button class="carousel__btn" type="button" data-dir="next" aria-label="Scorri a destra">›</button>
         </div>
       </div>
     </section>
@@ -318,6 +347,19 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const carousel = document.querySelector('.carousel__track');
+    if (carousel) {
+      const btns = document.querySelectorAll('.carousel__btn');
+      btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const dir = btn.dataset.dir === 'next' ? 1 : -1;
+          const card = carousel.querySelector('.card');
+          const step = card ? card.getBoundingClientRect().width + 18 : 280;
+          carousel.scrollBy({ left: step * dir, behavior: 'smooth' });
+        });
+      });
+    }
   </script>
 </body>
 </html>
