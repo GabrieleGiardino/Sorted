@@ -1,13 +1,13 @@
 :root {
-  --bg: #0b0f1a;
-  --bg-2: #10162a;
-  --card: #121a31;
-  --text: #eef1ff;
-  --muted: #b2b8d6;
-  --accent: #2dd4bf;
-  --accent-2: #7cc4ff;
-  --outline: rgba(255, 255, 255, 0.08);
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --bg: #f6f7fb;
+  --bg-2: #ffffff;
+  --card: #eef1f8;
+  --text: #0e1726;
+  --muted: #5d6b85;
+  --accent: #2ad6c6;
+  --accent-2: #6aa9ff;
+  --outline: rgba(14, 23, 38, 0.08);
+  --shadow: 0 18px 40px rgba(9, 16, 29, 0.08);
   --radius: 18px;
 }
 
@@ -23,9 +23,9 @@ body {
   margin: 0;
   font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, sans-serif;
   background:
-    radial-gradient(900px 600px at 85% -10%, rgba(124, 196, 255, 0.18), transparent 60%),
-    radial-gradient(700px 700px at -10% 10%, rgba(45, 212, 191, 0.15), transparent 60%),
-    linear-gradient(180deg, #0b0f1a 0%, #0b1020 40%, #0c1126 100%);
+    radial-gradient(900px 600px at 85% -10%, rgba(106, 169, 255, 0.2), transparent 60%),
+    radial-gradient(700px 700px at -10% 10%, rgba(42, 214, 198, 0.18), transparent 60%),
+    linear-gradient(180deg, #f6f7fb 0%, #f4f6fb 40%, #edf1f9 100%);
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -52,7 +52,7 @@ a {
   top: 0;
   z-index: 50;
   backdrop-filter: blur(10px);
-  background: rgba(11, 15, 26, 0.7);
+  background: rgba(246, 247, 251, 0.8);
   border-bottom: 1px solid var(--outline);
 }
 
@@ -113,7 +113,7 @@ a {
 .menu a:not(.btn):hover,
 .menu a:not(.btn):focus {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(14, 23, 38, 0.06);
 }
 
 .hamburger {
@@ -146,15 +146,19 @@ a {
 
 .btn--primary {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  color: #0b0f1a;
+  color: #0e1726;
   border: none;
   box-shadow: var(--shadow);
 }
 
 .btn--ghost {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(14, 23, 38, 0.04);
 }
 
+.lang-toggle {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
 .btn--whatsapp {
   display: inline-flex;
   align-items: center;
@@ -228,7 +232,7 @@ a {
   overflow: hidden;
   border: 1px solid var(--outline);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(14, 23, 38, 0.04);
 }
 
 .marquee__track {
@@ -289,12 +293,12 @@ a {
 }
 
 .chip {
-  background: rgba(15, 19, 33, 0.9);
-  border: 1px solid rgba(124, 196, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(106, 169, 255, 0.3);
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 16px rgba(9, 16, 29, 0.12);
   animation: float 7s ease-in-out infinite;
   backdrop-filter: blur(6px);
 }
@@ -349,7 +353,7 @@ a {
 }
 
 .section.alt {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(14, 23, 38, 0.04);
   border-top: 1px solid var(--outline);
   border-bottom: 1px solid var(--outline);
 }
@@ -539,7 +543,7 @@ a {
 }
 
 .cta__box {
-  background: linear-gradient(120deg, rgba(45, 212, 191, 0.2), rgba(124, 196, 255, 0.2));
+  background: linear-gradient(120deg, rgba(42, 214, 198, 0.18), rgba(106, 169, 255, 0.2));
   border: 1px solid var(--outline);
   border-radius: 24px;
   padding: 32px;
@@ -553,6 +557,59 @@ a {
   gap: 12px;
   margin-top: 18px;
   flex-wrap: wrap;
+}
+
+.quick-form {
+  background: var(--card);
+  border: 1px solid var(--outline);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 16px;
+}
+
+.quick-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quick-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.quick-form input,
+.quick-form select,
+.quick-form textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--outline);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.quick-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.quick-form__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quick-form__note {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .footer {
@@ -729,6 +786,10 @@ a {
 
   .cta__box {
     padding: 24px;
+  }
+
+  .quick-form__row {
+    grid-template-columns: 1fr;
   }
 
   .carousel {

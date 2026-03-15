@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Sorted • Siti e strumenti digitali su misura a Parma</title>
-  <meta name="description" content="Creo siti moderni, tool e agende digitali che semplificano il lavoro di attività locali e freelance. Esperienze veloci, chiare e su misura." />
+  <title>Sorted Bros • Siti e strumenti digitali su misura</title>
+  <meta name="description" content="Creiamo siti moderni, tool e agende digitali che semplificano il lavoro di attività locali e freelance. Esperienze veloci, chiare e su misura." />
   <link rel="canonical" href="https://sorted-beryl.vercel.app/" />
 
   <meta name="theme-color" content="#0b0f1a" />
@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sorted — Strumenti digitali su misura" />
+  <meta property="og:title" content="Sorted Bros — Strumenti digitali su misura" />
   <meta property="og:description" content="Siti moderni, tool e agende digitali che fanno ordine nel tuo business." />
   <meta property="og:image" content="https://sorted-beryl.vercel.app/assets/og-image.jpg" />
   <meta property="og:url" content="https://sorted-beryl.vercel.app/" />
@@ -32,7 +32,7 @@
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Sorted home">
         <img class="brand-logo" src="assets/hero.png" alt="Logo Sorted" width="140" height="36" decoding="async">
-        <span class="brand-tag">Ordine digitale</span>
+        <span class="brand-tag">Sorted Bros</span>
       </a>
 
       <button class="hamburger" aria-controls="mainmenu" aria-expanded="false" aria-label="Apri/chiudi menu">
@@ -41,11 +41,12 @@
 
       <nav aria-label="Navigazione principale">
         <ul id="mainmenu" class="menu">
-          <li><a href="#soluzioni">Soluzioni</a></li>
-          <li><a href="#progetti">Progetti</a></li>
-          <li><a href="#metodo">Metodo</a></li>
-          <li><a href="#chi-sono">Chi sono</a></li>
-          <li><a class="btn btn--primary" href="#contatti">Parliamone</a></li>
+          <li><a href="#soluzioni" data-i18n="nav.soluzioni">Soluzioni</a></li>
+          <li><a href="#progetti" data-i18n="nav.progetti">Progetti</a></li>
+          <li><a href="#metodo" data-i18n="nav.metodo">Metodo</a></li>
+          <li><a href="#chi-sono" data-i18n="nav.chi">Chi siamo</a></li>
+          <li><button class="btn btn--ghost lang-toggle" id="langToggle" type="button" aria-label="Cambia lingua">EN</button></li>
+          <li><a class="btn btn--primary" href="#richiesta" data-i18n="nav.parliamone">Parliamone</a></li>
         </ul>
       </nav>
     </div>
@@ -55,30 +56,30 @@
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow">Sorted / Parma</p>
-          <h1>Metto ordine nel tuo business digitale.</h1>
-          <p class="lead">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Sorted Bros</p>
+          <h1 data-i18n="hero.title">Metto ordine nel tuo business digitale.</h1>
+          <p class="lead" data-i18n="hero.lead">
             Creo <strong>siti moderni</strong>, tool e agende digitali che semplificano il lavoro di attività locali e freelance.
             Zero fumo, solo risultati chiari e veloci.
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#contatti">Prenota una consulenza</a>
-            <a class="btn btn--ghost" href="#progetti">Guarda i progetti</a>
+            <a class="btn btn--primary" href="#contatti" data-i18n="hero.cta1">Prenota una consulenza</a>
+            <a class="btn btn--ghost" href="#progetti" data-i18n="hero.cta2">Guarda i progetti</a>
           </div>
 
           <div class="stats">
             <div>
               <span class="stat__num">1-3</span>
-              <span class="stat__label">settimane di consegna</span>
+              <span class="stat__label" data-i18n="hero.stat1">settimane di consegna</span>
             </div>
             <div>
               <span class="stat__num">100%</span>
-              <span class="stat__label">su misura</span>
+              <span class="stat__label" data-i18n="hero.stat2">su misura</span>
             </div>
             <div>
               <span class="stat__num">+30</span>
-              <span class="stat__label">giorni di supporto</span>
+              <span class="stat__label" data-i18n="hero.stat3">giorni di supporto</span>
             </div>
           </div>
 
@@ -108,10 +109,10 @@
             </video>
           </div>
           <div class="floating">
-            <span class="chip">Agenda smart</span>
-            <span class="chip">Form veloci</span>
-            <span class="chip">Dashboard</span>
-            <span class="chip">Siti vetrina</span>
+            <span class="chip" data-i18n="chips.c1">Agenda smart</span>
+            <span class="chip" data-i18n="chips.c2">Form veloci</span>
+            <span class="chip" data-i18n="chips.c3">Dashboard</span>
+            <span class="chip" data-i18n="chips.c4">Siti vetrina</span>
           </div>
           <div class="orbs">
             <span class="orb orb--a"></span>
@@ -125,21 +126,21 @@
     <section id="soluzioni" class="section">
       <div class="container">
         <div class="section__head">
-          <h2>Problemi reali che risolvo</h2>
-          <p>Non vendo solo siti. Creo strumenti che ti fanno lavorare meglio.</p>
+          <h2 data-i18n="soluzioni.h2">Problemi reali che risolvo</h2>
+          <p data-i18n="soluzioni.p">Non vendo solo siti. Creo strumenti che ti fanno lavorare meglio.</p>
         </div>
         <div class="grid-3">
           <article class="card reveal">
-            <h3>Pochi contatti dal web</h3>
-            <p>Riprogetto la tua presenza online per trasformare le visite in richieste reali.</p>
+            <h3 data-i18n="soluzioni.c1.t">Pochi contatti dal web</h3>
+            <p data-i18n="soluzioni.c1.p">Riprogetto la tua presenza online per trasformare le visite in richieste reali.</p>
           </article>
           <article class="card reveal">
-            <h3>Appuntamenti nel caos</h3>
-            <p>Agende digitali e reminder automatici per non perdere tempo e clienti.</p>
+            <h3 data-i18n="soluzioni.c2.t">Appuntamenti nel caos</h3>
+            <p data-i18n="soluzioni.c2.p">Agende digitali e reminder automatici per non perdere tempo e clienti.</p>
           </article>
           <article class="card reveal">
-            <h3>Processi lenti</h3>
-            <p>Tool su misura per evitare fogli, chat infinite e passaggi inutili.</p>
+            <h3 data-i18n="soluzioni.c3.t">Processi lenti</h3>
+            <p data-i18n="soluzioni.c3.p">Tool su misura per evitare fogli, chat infinite e passaggi inutili.</p>
           </article>
         </div>
       </div>
@@ -148,51 +149,51 @@
     <section class="section alt">
       <div class="container">
         <div class="section__head">
-          <h2>Cosa creo per te</h2>
-          <p>Dal sito vetrina all'app interna: tutto su misura.</p>
+          <h2 data-i18n="creo.h2">Cosa creo per te</h2>
+          <p data-i18n="creo.p">Dal sito vetrina all'app interna: tutto su misura.</p>
         </div>
         <div class="carousel">
           <button class="carousel__btn" type="button" data-dir="prev" aria-label="Scorri a sinistra">‹</button>
           <div class="carousel__track" aria-label="Servizi in evidenza">
             <article class="card feature reveal">
               <div class="icon">01</div>
-              <h3>Siti vetrina moderni</h3>
-              <p>Immagine professionale, caricamento rapido e testi che parlano al tuo cliente.</p>
+              <h3 data-i18n="creo.c1.t">Siti vetrina moderni</h3>
+              <p data-i18n="creo.c1.p">Immagine professionale, caricamento rapido e testi che parlano al tuo cliente.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">02</div>
-              <h3>Landing che convertono</h3>
-              <p>Una pagina chiara, con una sola direzione: il contatto.</p>
+              <h3 data-i18n="creo.c2.t">Landing che convertono</h3>
+              <p data-i18n="creo.c2.p">Una pagina chiara, con una sola direzione: il contatto.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">03</div>
-              <h3>Tool & agende smart</h3>
-              <p>Piccoli gestionali e prenotazioni online che ti semplificano la vita.</p>
+              <h3 data-i18n="creo.c3.t">Tool & agende smart</h3>
+              <p data-i18n="creo.c3.p">Piccoli gestionali e prenotazioni online che ti semplificano la vita.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">04</div>
-              <h3>E-commerce</h3>
-              <p>Shop online veloci e chiari, con catalogo semplice da gestire.</p>
+              <h3 data-i18n="creo.c4.t">E-commerce</h3>
+              <p data-i18n="creo.c4.p">Shop online veloci e chiari, con catalogo semplice da gestire.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">05</div>
-              <h3>Rebrand digitale</h3>
-              <p>Rinfresco sito e interfacce per un look moderno e coerente.</p>
+              <h3 data-i18n="creo.c5.t">Rebrand digitale</h3>
+              <p data-i18n="creo.c5.p">Rinfresco sito e interfacce per un look moderno e coerente.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">06</div>
-              <h3>Shopify Shop</h3>
-              <p>Setup completo Shopify, tema, prodotti e ottimizzazioni.</p>
+              <h3 data-i18n="creo.c6.t">Shopify Shop</h3>
+              <p data-i18n="creo.c6.p">Setup completo Shopify, tema, prodotti e ottimizzazioni.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">07</div>
-              <h3>Tool su misura</h3>
-              <p>Strumenti interni personalizzati per processi specifici.</p>
+              <h3 data-i18n="creo.c7.t">Tool su misura</h3>
+              <p data-i18n="creo.c7.p">Strumenti interni personalizzati per processi specifici.</p>
             </article>
             <article class="card feature reveal">
               <div class="icon">08</div>
-              <h3>Sistemi di pagamento</h3>
-              <p>Integrazione Stripe, PayPal o pagamenti online dedicati.</p>
+              <h3 data-i18n="creo.c8.t">Sistemi di pagamento</h3>
+              <p data-i18n="creo.c8.p">Integrazione Stripe, PayPal o pagamenti online dedicati.</p>
             </article>
           </div>
           <button class="carousel__btn" type="button" data-dir="next" aria-label="Scorri a destra">›</button>
@@ -203,43 +204,43 @@
     <section id="progetti" class="section">
       <div class="container">
         <div class="section__head">
-          <h2>Progetti selezionati</h2>
-          <p>Ogni lavoro nasce da un problema e finisce con un risultato concreto.</p>
+          <h2 data-i18n="progetti.h2">Progetti selezionati</h2>
+          <p data-i18n="progetti.p">Ogni lavoro nasce da un problema e finisce con un risultato concreto.</p>
         </div>
         <div class="grid-2">
           <article class="project reveal">
             <img src="assets/NSG.png" alt="Anteprima progetto Non Solo Gomme" width="1200" height="700" loading="lazy">
             <div class="project__body">
-              <small>2024 • Sito vetrina</small>
+              <small data-i18n="progetti.nsg.meta">2024 • Sito vetrina</small>
               <h3>Non Solo Gomme</h3>
-              <p>Sito moderno per gommista con recensioni rapide, form contatti e pagine dedicate alle novità.</p>
+              <p data-i18n="progetti.nsg.p">Sito moderno per gommista con recensioni rapide, form contatti e pagine dedicate alle novità.</p>
               <div class="tags"><span>React</span><span>Vite</span><span>SEO</span></div>
             </div>
           </article>
           <article class="project reveal">
             <img src="assets/rainoo.png" alt="Anteprima progetto Rainoo" width="1200" height="700" loading="lazy">
             <div class="project__body">
-              <small>2025 • Web app</small>
+              <small data-i18n="progetti.rainoo.meta">2025 • Web app</small>
               <h3>Rainoo</h3>
-              <p>App per noleggio ombrelli con mappe, pagamenti Stripe e interfaccia mobile-first.</p>
+              <p data-i18n="progetti.rainoo.p">App per noleggio ombrelli con mappe, pagamenti Stripe e interfaccia mobile-first.</p>
               <div class="tags"><span>React</span><span>MongoDB</span><span>Stripe</span></div>
             </div>
           </article>
           <article class="project reveal">
             <img src="assets/BC1.png" alt="Anteprima progetto Agenda dinamica" width="1200" height="700" loading="lazy">
             <div class="project__body">
-              <small>2024 • Tool interno</small>
-              <h3>Agenda Dinamica</h3>
-              <p>Gestione appuntamenti con reminder e storico clienti per attività locali.</p>
+              <small data-i18n="progetti.agenda.meta">2024 • Tool interno</small>
+              <h3 data-i18n="progetti.agenda.t">Agenda Dinamica</h3>
+              <p data-i18n="progetti.agenda.p">Gestione appuntamenti con reminder e storico clienti per attività locali.</p>
               <div class="tags"><span>React</span><span>UX</span><span>Automation</span></div>
             </div>
           </article>
           <article class="project reveal">
             <img src="assets/screen1.png" alt="Anteprima progetto Q Beauty" width="1200" height="700" loading="lazy">
             <div class="project__body">
-              <small>2025 • E-commerce vetrina</small>
+              <small data-i18n="progetti.qbeauty.meta">2025 • E-commerce vetrina</small>
               <h3>Q Beauty</h3>
-              <p>Vetrina digitale per prodotti beauty, form contatti dedicato e layout premium.</p>
+              <p data-i18n="progetti.qbeauty.p">Vetrina digitale per prodotti beauty, form contatti dedicato e layout premium.</p>
               <div class="tags"><span>React</span><span>Design</span><span>Performance</span></div>
             </div>
           </article>
@@ -250,24 +251,24 @@
     <section id="metodo" class="section alt">
       <div class="container">
         <div class="section__head">
-          <h2>Metodo semplice, risultati solidi</h2>
-          <p>Tre step chiari, zero giri di parole.</p>
+          <h2 data-i18n="metodo.h2">Metodo semplice, risultati solidi</h2>
+          <p data-i18n="metodo.p">Tre step chiari, zero giri di parole.</p>
         </div>
         <div class="steps">
           <div class="step reveal">
             <span class="step__num">01</span>
-            <h3>Ascolto e strategia</h3>
-            <p>Capisco obiettivi e problemi reali, poi definisco una soluzione concreta.</p>
+            <h3 data-i18n="metodo.s1.t">Ascolto e strategia</h3>
+            <p data-i18n="metodo.s1.p">Capisco obiettivi e problemi reali, poi definisco una soluzione concreta.</p>
           </div>
           <div class="step reveal">
             <span class="step__num">02</span>
-            <h3>Design e sviluppo</h3>
-            <p>Interfaccia pulita, veloce e pensata per i tuoi clienti.</p>
+            <h3 data-i18n="metodo.s2.t">Design e sviluppo</h3>
+            <p data-i18n="metodo.s2.p">Interfaccia pulita, veloce e pensata per i tuoi clienti.</p>
           </div>
           <div class="step reveal">
             <span class="step__num">03</span>
-            <h3>Lancio e supporto</h3>
-            <p>Mettiamo online e rimango disponibile per ottimizzare e migliorare.</p>
+            <h3 data-i18n="metodo.s3.t">Lancio e supporto</h3>
+            <p data-i18n="metodo.s3.p">Mettiamo online e rimango disponibile per ottimizzare e migliorare.</p>
           </div>
         </div>
       </div>
@@ -279,30 +280,106 @@
           <img src="assets/hero.png" alt="Ritratto Sorted" width="800" height="900" loading="lazy">
         </div>
         <div class="about__copy reveal">
-          <h2>Piacere, sono Gabriele</h2>
+          <h2 data-i18n="about.h2">Piacere, sono Gabriele</h2>
           <p>
-            Sono uno sviluppatore web di Parma. Lavoro con attività locali e professionisti per creare strumenti digitali
-            utili, belli e facili da usare. Il mio obiettivo è far lavorare meglio le persone, non complicare.
+            <span data-i18n="about.p">Sono uno sviluppatore web di Parma. Lavoro con attività locali e professionisti per creare strumenti digitali
+            utili, belli e facili da usare. Il mio obiettivo è far lavorare meglio le persone, non complicare.</span>
           </p>
           <div class="about__cta">
-            <a class="btn btn--primary" href="#contatti">Raccontami il tuo progetto</a>
-            <a class="btn btn--ghost" href="mailto:sorted.parma@gmail.com">Scrivimi</a>
+            <a class="btn btn--primary" href="#contatti" data-i18n="about.cta1">Raccontami il tuo progetto</a>
+            <a class="btn btn--ghost" href="mailto:sorted.parma@gmail.com" data-i18n="about.cta2">Scrivimi</a>
             <a class="btn btn--ghost btn--whatsapp" href="https://wa.me/3938276064?text=Ciao%20Gabriele%2C%20ho%20un%20progetto%20web%20e%20vorrei%20una%20consulenza." target="_blank" rel="noopener">
               <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
                 <path fill="currentColor" d="M16 3C8.832 3 3 8.664 3 15.82c0 2.78.92 5.338 2.48 7.406L4 29l5.98-1.56A12.86 12.86 0 0 0 16 28.66c7.168 0 13-5.664 13-12.84C29 8.664 23.168 3 16 3zm0 23.08c-2.08 0-4.02-.548-5.7-1.5l-.41-.24-3.54.92.94-3.42-.26-.44A10.4 10.4 0 0 1 5.6 15.82c0-5.76 4.72-10.44 10.4-10.44s10.4 4.68 10.4 10.44-4.72 10.44-10.4 10.44zm5.98-7.7c-.32-.16-1.9-.94-2.2-1.04-.3-.12-.52-.16-.74.16-.22.32-.86 1.04-1.06 1.26-.2.22-.4.24-.72.08-.32-.16-1.36-.5-2.6-1.6-.96-.84-1.6-1.88-1.78-2.2-.18-.32-.02-.5.14-.66.14-.14.32-.4.48-.6.16-.2.22-.32.34-.54.12-.22.06-.42-.02-.58-.08-.16-.74-1.8-1.02-2.46-.26-.62-.52-.52-.74-.54h-.64c-.22 0-.58.08-.88.42-.3.34-1.16 1.12-1.16 2.74 0 1.62 1.18 3.18 1.34 3.4.16.22 2.32 3.54 5.62 4.96.78.34 1.4.54 1.88.7.78.24 1.5.2 2.06.12.62-.1 1.9-.78 2.16-1.54.26-.76.26-1.42.18-1.54-.08-.12-.3-.2-.62-.36z"/>
               </svg>
-              WhatsApp
+              <span data-i18n="about.cta3">WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
+    <section id="richiesta" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 data-i18n="quick.h2">Richiesta veloce</h2>
+          <p data-i18n="quick.p">Raccolgo due informazioni e ti rispondo il prima possibile.</p>
+        </div>
+        <form class="quick-form" aria-label="Contatto rapido">
+          <div class="quick-form__row">
+            <label>
+              <span data-i18n="quick.name">Nome e cognome</span>
+              <input type="text" name="name" placeholder="Es. Marco Rossi" required>
+            </label>
+            <label>
+              <span data-i18n="quick.email">Email</span>
+              <input type="email" name="email" placeholder="nome@email.it" required>
+            </label>
+          </div>
+          <div class="quick-form__row">
+            <label>
+              <span data-i18n="quick.type">Tipo di attività</span>
+              <select name="business" required>
+                <option value="" disabled selected>Seleziona</option>
+                <option>Attività locale</option>
+                <option>Freelance</option>
+                <option>Studio professionale</option>
+                <option>E-commerce</option>
+                <option>Altro</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="quick.need">Cosa ti serve</span>
+              <select name="need" required>
+                <option value="" disabled selected>Seleziona</option>
+                <option>Sito vetrina</option>
+                <option>Landing page</option>
+                <option>Agenda / prenotazioni</option>
+                <option>Tool su misura</option>
+                <option>E-commerce</option>
+                <option>Rebrand</option>
+              </select>
+            </label>
+          </div>
+          <div class="quick-form__row">
+            <label>
+              <span data-i18n="quick.budget">Budget indicativo</span>
+              <select name="budget">
+                <option value="" disabled selected>Seleziona</option>
+                <option>Fino a 800€</option>
+                <option>800€ – 1.500€</option>
+                <option>1.500€ – 3.000€</option>
+                <option>3.000€ +</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="quick.time">Tempistiche</span>
+              <select name="timeline">
+                <option value="" disabled selected>Seleziona</option>
+                <option>Urgente (1–2 settimane)</option>
+                <option>1 mese</option>
+                <option>2–3 mesi</option>
+                <option>Da definire</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span data-i18n="quick.msg">Note rapide</span>
+            <textarea name="message" rows="4" placeholder="Raccontami in breve la tua idea"></textarea>
+          </label>
+          <div class="quick-form__actions">
+            <button class="btn btn--primary" type="button" data-i18n="quick.send">Invia richiesta</button>
+            <span class="quick-form__note" data-i18n="quick.note">Invio attivo a breve. Per ora usa WhatsApp o email.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section id="contatti" class="section cta">
       <div class="container">
         <div class="cta__box reveal">
-          <h2>Hai un progetto in mente?</h2>
-          <p>Una consulenza iniziale e gratuita. Ti dico subito cosa ha senso fare.</p>
+          <h2 data-i18n="contatti.h2">Hai un progetto in mente?</h2>
+          <p data-i18n="contatti.p">Una consulenza iniziale e gratuita. Ti dico subito cosa ha senso fare.</p>
           <div class="cta__actions">
             <a class="btn btn--primary" href="mailto:sorted.parma@gmail.com">sorted.parma@gmail.com</a>
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/gabriele-giardino-280617319/" target="_blank" rel="noopener">LinkedIn</a>
@@ -315,7 +392,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© <span id="year"></span> Sorted. Tutti i diritti riservati.</p>
+      <p>© <span id="year"></span> <span data-i18n="footer.brand">Sorted.</span> <span data-i18n="footer.rights">Tutti i diritti riservati.</span></p>
     </div>
   </footer>
 
@@ -358,6 +435,199 @@
           const step = card ? card.getBoundingClientRect().width + 18 : 280;
           carousel.scrollBy({ left: step * dir, behavior: 'smooth' });
         });
+      });
+    }
+
+    const i18n = {
+      it: {
+        'nav.soluzioni': 'Soluzioni',
+        'nav.progetti': 'Progetti',
+        'nav.metodo': 'Metodo',
+        'nav.chi': 'Chi siamo',
+        'nav.parliamone': 'Parliamone',
+        'hero.eyebrow': 'Sorted Bros',
+        'hero.title': 'Mettiamo ordine nel tuo business digitale (senza mal di testa).',
+        'hero.lead': 'Creiamo <strong>siti moderni</strong>, tool e agende digitali che semplificano il lavoro di attività locali e freelance. Niente fumo: solo risultati chiari e veloci.',
+        'hero.cta1': 'Parliamone in 10 min',
+        'hero.cta2': 'Vedi cosa abbiamo fatto',
+        'hero.stat1': 'settimane di consegna',
+        'hero.stat2': 'su misura',
+        'hero.stat3': 'giorni di supporto',
+        'chips.c1': 'Agenda smart',
+        'chips.c2': 'Form veloci',
+        'chips.c3': 'Dashboard',
+        'chips.c4': 'Siti vetrina',
+        'soluzioni.h2': 'Problemi reali (niente fuffa)',
+        'soluzioni.p': 'Non vendiamo solo siti. Creiamo strumenti che ti fanno lavorare meglio, sul serio.',
+        'soluzioni.c1.t': 'Pochi contatti dal web',
+        'soluzioni.c1.p': 'Riprogetto la tua presenza online per trasformare le visite in richieste reali.',
+        'soluzioni.c2.t': 'Appuntamenti nel caos',
+        'soluzioni.c2.p': 'Agende digitali e reminder automatici per non perdere tempo e clienti.',
+        'soluzioni.c3.t': 'Processi lenti',
+        'soluzioni.c3.p': 'Tool su misura per evitare fogli, chat infinite e passaggi inutili.',
+        'creo.h2': 'Cosa creo per te',
+        'creo.p': "Dal sito vetrina all'app interna: fatto bene, senza drama.",
+        'creo.c1.t': 'Siti vetrina moderni',
+        'creo.c1.p': 'Immagine professionale, caricamento rapido e testi che parlano al tuo cliente.',
+        'creo.c2.t': 'Landing che convertono',
+        'creo.c2.p': 'Una pagina chiara, con una sola direzione: il contatto.',
+        'creo.c3.t': 'Tool & agende smart',
+        'creo.c3.p': 'Piccoli gestionali e prenotazioni online che ti semplificano la vita.',
+        'creo.c4.t': 'E-commerce',
+        'creo.c4.p': 'Shop online veloci e chiari, con catalogo semplice da gestire.',
+        'creo.c5.t': 'Rebrand digitale',
+        'creo.c5.p': 'Rinfresco sito e interfacce per un look moderno e coerente.',
+        'creo.c6.t': 'Shopify Shop',
+        'creo.c6.p': 'Setup completo Shopify, tema, prodotti e ottimizzazioni.',
+        'creo.c7.t': 'Tool su misura',
+        'creo.c7.p': 'Strumenti interni personalizzati per processi specifici.',
+        'creo.c8.t': 'Sistemi di pagamento',
+        'creo.c8.p': 'Integrazione Stripe, PayPal o pagamenti online dedicati.',
+        'progetti.h2': 'Progetti selezionati',
+        'progetti.p': 'Ogni lavoro nasce da un problema e finisce con un risultato concreto.',
+        'progetti.nsg.meta': '2024 • Sito vetrina',
+        'progetti.nsg.p': 'Sito moderno per gommista con recensioni rapide, form contatti e pagine dedicate alle novità.',
+        'progetti.rainoo.meta': '2025 • Web app',
+        'progetti.rainoo.p': 'App per noleggio ombrelli con mappe, pagamenti Stripe e interfaccia mobile-first.',
+        'progetti.agenda.meta': '2024 • Tool interno',
+        'progetti.agenda.t': 'Agenda Dinamica',
+        'progetti.agenda.p': 'Gestione appuntamenti con reminder e storico clienti per attività locali.',
+        'progetti.qbeauty.meta': '2025 • E-commerce vetrina',
+        'progetti.qbeauty.p': 'Vetrina digitale per prodotti beauty, form contatti dedicato e layout premium.',
+        'metodo.h2': 'Metodo semplice, risultati solidi',
+        'metodo.p': 'Tre step chiari. Niente riunioni infinite.',
+        'metodo.s1.t': 'Ascolto e strategia',
+        'metodo.s1.p': 'Capisco obiettivi e problemi reali, poi definisco una soluzione concreta.',
+        'metodo.s2.t': 'Design e sviluppo',
+        'metodo.s2.p': 'Interfaccia pulita, veloce e pensata per i tuoi clienti.',
+        'metodo.s3.t': 'Lancio e supporto',
+        'metodo.s3.p': 'Mettiamo online e rimango disponibile per ottimizzare e migliorare.',
+        'about.h2': 'Piacere, siamo i Sorted Bros',
+        'about.p': 'Siamo un team di developer di Parma. Aiutiamo attività locali e professionisti con strumenti digitali utili, belli e semplici da usare. L’obiettivo? Far lavorare meglio le persone, non complicare.',
+        'about.cta1': 'Raccontaci l’idea',
+        'about.cta2': 'Scrivimi',
+        'about.cta3': 'WhatsApp',
+        'contatti.h2': 'Hai un progetto in mente?',
+        'contatti.p': 'Prima chiacchierata gratis, poi ti diciamo cosa ha davvero senso.',
+        'quick.h2': 'Richiesta veloce',
+        'quick.p': 'Due info al volo, poi ti rispondo io.',
+        'quick.name': 'Nome e cognome',
+        'quick.email': 'Email',
+        'quick.type': 'Tipo di attività',
+        'quick.need': 'Cosa ti serve',
+        'quick.budget': 'Budget indicativo',
+        'quick.time': 'Tempistiche',
+        'quick.msg': 'Note rapide',
+        'quick.send': 'Invia richiesta',
+        'quick.note': 'Invio attivo a breve. Per ora usa WhatsApp o email.',
+        'footer.brand': 'Sorted.',
+        'footer.rights': 'Tutti i diritti riservati.'
+      },
+      en: {
+        'nav.soluzioni': 'Solutions',
+        'nav.progetti': 'Projects',
+        'nav.metodo': 'Process',
+        'nav.chi': 'About',
+        'nav.parliamone': 'Let’s talk',
+        'hero.eyebrow': 'Sorted Bros',
+        'hero.title': 'We bring order to your digital business (without the headache).',
+        'hero.lead': 'We build <strong>modern websites</strong>, tools and booking systems that simplify work for local businesses and freelancers. No fluff, just clear results.',
+        'hero.cta1': 'Let’s talk in 10 min',
+        'hero.cta2': 'See what we built',
+        'hero.stat1': 'weeks delivery',
+        'hero.stat2': 'custom built',
+        'hero.stat3': 'days support',
+        'chips.c1': 'Smart booking',
+        'chips.c2': 'Fast forms',
+        'chips.c3': 'Dashboard',
+        'chips.c4': 'Showcase sites',
+        'soluzioni.h2': 'Real problems (no fluff)',
+        'soluzioni.p': 'We don’t just build sites. We build tools that make your work easier — for real.',
+        'soluzioni.c1.t': 'Too few leads',
+        'soluzioni.c1.p': 'I redesign your presence to turn visits into real requests.',
+        'soluzioni.c2.t': 'Appointments chaos',
+        'soluzioni.c2.p': 'Digital calendars and reminders so you don’t lose time or clients.',
+        'soluzioni.c3.t': 'Slow processes',
+        'soluzioni.c3.p': 'Custom tools to remove spreadsheets, endless chats and waste.',
+        'creo.h2': 'What I build for you',
+        'creo.p': 'From showcase sites to internal apps: done right, no drama.',
+        'creo.c1.t': 'Modern showcase sites',
+        'creo.c1.p': 'Professional image, fast load and copy that speaks to your clients.',
+        'creo.c2.t': 'High‑converting landing pages',
+        'creo.c2.p': 'A clear page with a single goal: contact.',
+        'creo.c3.t': 'Tools & smart booking',
+        'creo.c3.p': 'Lightweight dashboards and online bookings that simplify your day.',
+        'creo.c4.t': 'E‑commerce',
+        'creo.c4.p': 'Fast and clean shops with easy catalog management.',
+        'creo.c5.t': 'Digital rebrand',
+        'creo.c5.p': 'Refresh your site and UI for a modern, consistent look.',
+        'creo.c6.t': 'Shopify shop',
+        'creo.c6.p': 'Full Shopify setup: theme, products and optimizations.',
+        'creo.c7.t': 'Custom tools',
+        'creo.c7.p': 'Internal tools tailored to your workflow.',
+        'creo.c8.t': 'Payment systems',
+        'creo.c8.p': 'Stripe, PayPal or dedicated online payment integrations.',
+        'progetti.h2': 'Selected projects',
+        'progetti.p': 'Every project starts with a problem and ends with a real outcome.',
+        'progetti.nsg.meta': '2024 • Showcase site',
+        'progetti.nsg.p': 'Modern site for a tire shop with quick reviews, contact form and updates.',
+        'progetti.rainoo.meta': '2025 • Web app',
+        'progetti.rainoo.p': 'Umbrella rental app with maps, Stripe payments and mobile‑first UI.',
+        'progetti.agenda.meta': '2024 • Internal tool',
+        'progetti.agenda.t': 'Dynamic Booking',
+        'progetti.agenda.p': 'Appointment management with reminders and customer history.',
+        'progetti.qbeauty.meta': '2025 • Showcase e‑commerce',
+        'progetti.qbeauty.p': 'Digital showcase for beauty products with a premium layout.',
+        'metodo.h2': 'Simple process, solid results',
+        'metodo.p': 'Three clear steps. No endless meetings.',
+        'metodo.s1.t': 'Discovery & strategy',
+        'metodo.s1.p': 'I understand goals and problems, then define a concrete solution.',
+        'metodo.s2.t': 'Design & development',
+        'metodo.s2.p': 'Clean, fast interface built for your customers.',
+        'metodo.s3.t': 'Launch & support',
+        'metodo.s3.p': 'We go live and I stay available to improve and optimize.',
+        'about.h2': 'Nice to meet you, we’re Sorted Bros',
+        'about.p': 'We’re a dev team based in Parma. We help local businesses and professionals with useful, beautiful and easy‑to‑use tools. Our goal: make work easier, not harder.',
+        'about.cta1': 'Tell us the idea',
+        'about.cta2': 'Email me',
+        'about.cta3': 'WhatsApp',
+        'contatti.h2': 'Have a project in mind?',
+        'contatti.p': 'Free first chat. We’ll tell you what actually makes sense.',
+        'quick.h2': 'Quick request',
+        'quick.p': 'Two quick details and I’ll get back to you.',
+        'quick.name': 'Full name',
+        'quick.email': 'Email',
+        'quick.type': 'Business type',
+        'quick.need': 'What you need',
+        'quick.budget': 'Estimated budget',
+        'quick.time': 'Timeline',
+        'quick.msg': 'Quick notes',
+        'quick.send': 'Send request',
+        'quick.note': 'Sending will be enabled soon. For now use WhatsApp or email.',
+        'footer.brand': 'Sorted.',
+        'footer.rights': 'All rights reserved.'
+      }
+    };
+
+    const langToggle = document.getElementById('langToggle');
+    const setLang = (lang) => {
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+      if (langToggle) langToggle.textContent = lang === 'it' ? 'EN' : 'IT';
+      localStorage.setItem('sorted_lang', lang);
+    };
+
+    if (langToggle) {
+      const saved = localStorage.getItem('sorted_lang') || 'it';
+      setLang(saved);
+      langToggle.addEventListener('click', () => {
+        const next = document.documentElement.lang === 'it' ? 'en' : 'it';
+        setLang(next);
       });
     }
   </script>
