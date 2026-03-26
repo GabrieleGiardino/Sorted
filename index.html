@@ -9,8 +9,8 @@
   <link rel="canonical" href="https://sorted-beryl.vercel.app/" />
 
   <meta name="theme-color" content="#0b0f1a" />
-  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/S.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="assets/S.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <meta property="og:type" content="website" />
@@ -121,7 +121,7 @@
     <section id="chi-sono" class="section">
       <div class="container about">
         <div class="about__media reveal">
-          <img src="assets/Bros.png" alt="Logo Sorted Bros" width="800" height="900" loading="lazy">
+          <img src="assets/bros2.png" alt="Logo Sorted Bros" width="800" height="900" loading="lazy">
         </div>
         <div class="about__copy reveal">
           <h2 data-i18n="about.h2">Piacere, sono Gabriele</h2>
@@ -551,56 +551,62 @@
     const projectLoop = document.querySelector('.project-loop');
     const projectTrack = document.querySelector('.project-track');
     if (projectLoop && projectTrack) {
-      let offset = 0;
-      let speed = 0.35; // px per frame
-      let paused = false;
-      let trackWidth = 0;
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) {
+        projectLoop.classList.add('is-scroll');
+        projectTrack.style.transform = 'none';
+      } else {
+        let offset = 0;
+        let speed = 0.35; // px per frame
+        let paused = false;
+        let trackWidth = 0;
 
-      const measure = () => {
-        trackWidth = projectTrack.scrollWidth / 2;
-      };
-      measure();
-      window.addEventListener('resize', measure);
+        const measure = () => {
+          trackWidth = projectTrack.scrollWidth / 2;
+        };
+        measure();
+        window.addEventListener('resize', measure);
 
-      const centerStart = () => {
-        const startCard = projectTrack.querySelector('[data-start=\"true\"]');
-        if (!startCard) return;
-        const loopRect = projectLoop.getBoundingClientRect();
-        const cardRect = startCard.getBoundingClientRect();
-        const desired = loopRect.left + loopRect.width / 2;
-        offset -= (cardRect.left + cardRect.width / 2) - desired;
-        projectTrack.style.transform = `translateX(${offset}px)`;
-      };
-
-      centerStart();
-
-      const tick = () => {
-        if (!paused) {
-          offset -= speed;
-          if (Math.abs(offset) >= trackWidth) offset = 0;
+        const centerStart = () => {
+          const startCard = projectTrack.querySelector('[data-start=\"true\"]');
+          if (!startCard) return;
+          const loopRect = projectLoop.getBoundingClientRect();
+          const cardRect = startCard.getBoundingClientRect();
+          const desired = loopRect.left + loopRect.width / 2;
+          offset -= (cardRect.left + cardRect.width / 2) - desired;
           projectTrack.style.transform = `translateX(${offset}px)`;
-        }
+        };
+
+        centerStart();
+
+        const tick = () => {
+          if (!paused) {
+            offset -= speed;
+            if (Math.abs(offset) >= trackWidth) offset = 0;
+            projectTrack.style.transform = `translateX(${offset}px)`;
+          }
+          requestAnimationFrame(tick);
+        };
         requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
 
-      projectLoop.addEventListener('mouseenter', () => { paused = true; });
-      projectLoop.addEventListener('mouseleave', () => { paused = false; });
+        projectLoop.addEventListener('mouseenter', () => { paused = true; });
+        projectLoop.addEventListener('mouseleave', () => { paused = false; });
 
-      const step = () => {
-        const card = projectTrack.querySelector('.project');
-        return card ? card.getBoundingClientRect().width + 18 : 360;
-      };
+        const step = () => {
+          const card = projectTrack.querySelector('.project');
+          return card ? card.getBoundingClientRect().width + 18 : 360;
+        };
 
-      document.querySelectorAll('.project-control').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const dir = btn.dataset.dir === 'next' ? -1 : 1;
-          offset += step() * dir;
-          projectTrack.style.transform = `translateX(${offset}px)`;
-          paused = true;
-          setTimeout(() => { paused = false; }, 1200);
+        document.querySelectorAll('.project-control').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const dir = btn.dataset.dir === 'next' ? -1 : 1;
+            offset += step() * dir;
+            projectTrack.style.transform = `translateX(${offset}px)`;
+            paused = true;
+            setTimeout(() => { paused = false; }, 1200);
+          });
         });
-      });
+      }
     }
 
     const i18n = {
