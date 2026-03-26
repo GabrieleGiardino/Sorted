@@ -368,12 +368,9 @@ a {
   display: flex;
   gap: 18px;
   width: max-content;
-  animation: project-scroll 28s linear infinite;
+  will-change: transform;
 }
 
-.project-track:hover {
-  animation-play-state: paused;
-}
 
 .project-group {
   display: flex;
@@ -384,10 +381,33 @@ a {
   flex: 0 0 360px;
 }
 
-@keyframes project-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.project-control {
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--outline);
+  background: rgba(14, 23, 38, 0.04);
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1;
 }
+
+.project-control--left,
+.project-control--right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.project-control--left {
+  left: 18px;
+}
+
+.project-control--right {
+  right: 18px;
+}
+
 
 .card {
   background: var(--card);

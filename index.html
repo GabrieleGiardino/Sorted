@@ -228,6 +228,8 @@
           <p data-i18n="progetti.p">Ogni lavoro nasce da un problema e finisce con un risultato concreto.</p>
         </div>
         <div class="project-loop" aria-label="Progetti in evidenza">
+          <button class="carousel__btn project-control project-control--left" type="button" data-dir="prev" aria-label="Scorri a sinistra">‹</button>
+          <button class="carousel__btn project-control project-control--right" type="button" data-dir="next" aria-label="Scorri a destra">›</button>
           <div class="project-track">
             <div class="project-group">
               <article class="project reveal">
@@ -525,22 +527,59 @@
       });
     }
 
+    const projectLoop = document.querySelector('.project-loop');
     const projectTrack = document.querySelector('.project-track');
-    if (projectTrack) {
-      const startCard = projectTrack.querySelector('[data-start=\"true\"]');
-      if (startCard) {
-        const group = startCard.closest('.project-group');
-        if (group) {
-          const rect = startCard.getBoundingClientRect();
-          const parentRect = projectTrack.getBoundingClientRect();
-          const offset = rect.left - parentRect.left;
-          projectTrack.style.animationPlayState = 'paused';
-          projectTrack.style.transform = `translateX(-${offset}px)`;
-          requestAnimationFrame(() => {
-            projectTrack.style.animationPlayState = 'running';
-          });
+    if (projectLoop && projectTrack) {
+      let offset = 0;
+      let speed = 0.35; // px per frame
+      let paused = false;
+      let trackWidth = 0;
+
+      const measure = () => {
+        trackWidth = projectTrack.scrollWidth / 2;
+      };
+      measure();
+      window.addEventListener('resize', measure);
+
+      const centerStart = () => {
+        const startCard = projectTrack.querySelector('[data-start=\"true\"]');
+        if (!startCard) return;
+        const loopRect = projectLoop.getBoundingClientRect();
+        const cardRect = startCard.getBoundingClientRect();
+        const desired = loopRect.left + loopRect.width / 2;
+        offset -= (cardRect.left + cardRect.width / 2) - desired;
+        projectTrack.style.transform = `translateX(${offset}px)`;
+      };
+
+      centerStart();
+
+      const tick = () => {
+        if (!paused) {
+          offset -= speed;
+          if (Math.abs(offset) >= trackWidth) offset = 0;
+          projectTrack.style.transform = `translateX(${offset}px)`;
         }
-      }
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+
+      projectLoop.addEventListener('mouseenter', () => { paused = true; });
+      projectLoop.addEventListener('mouseleave', () => { paused = false; });
+
+      const step = () => {
+        const card = projectTrack.querySelector('.project');
+        return card ? card.getBoundingClientRect().width + 18 : 360;
+      };
+
+      document.querySelectorAll('.project-control').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const dir = btn.dataset.dir === 'next' ? -1 : 1;
+          offset += step() * dir;
+          projectTrack.style.transform = `translateX(${offset}px)`;
+          paused = true;
+          setTimeout(() => { paused = false; }, 1200);
+        });
+      });
     }
 
     const i18n = {
