@@ -353,12 +353,12 @@
         <div class="price-grid">
           <article class="price-card reveal">
             <h3 data-i18n="prezzi.c1.t">Sito vetrina</h3>
-            <p class="price-value">€300 – €700</p>
+            <p class="price-value">€300 – €700+</p>
             <p data-i18n="prezzi.c1.p">Ideale per attività locali che vogliono una presenza chiara e moderna.</p>
           </article>
           <article class="price-card reveal">
             <h3 data-i18n="prezzi.c2.t">Landing page</h3>
-            <p class="price-value">€200 – €400</p>
+            <p class="price-value">€200 – €400+</p>
             <p data-i18n="prezzi.c2.p">Una pagina con un obiettivo preciso: contatti o prenotazioni.</p>
           </article>
           <article class="price-card reveal">
@@ -378,7 +378,7 @@
           </article>
           <article class="price-card reveal">
             <h3 data-i18n="prezzi.c6.t">Rebrand digitale</h3>
-            <p class="price-value">€600 – €1.800</p>
+            <p class="price-value">€600 – €1.800+</p>
             <p data-i18n="prezzi.c6.p">Restyling grafico e testuale per rilanciare l’immagine.</p>
           </article>
         </div>
@@ -479,9 +479,17 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© <span id="year"></span> <span data-i18n="footer.brand">Sortedbros.</span> <span data-i18n="footer.rights">Tutti i diritti riservati.</span></p>
+      <p>© <span id="year"></span> <span data-i18n="footer.brand">Sortedbros.</span> <span data-i18n="footer.rights">Tutti i diritti riservati.</span> · <a href="privacy.html" class="footer-link">Privacy Policy</a></p>
     </div>
   </footer>
+
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie banner">
+    <p>Usiamo cookie tecnici per migliorare l’esperienza. Puoi accettare o rifiutare i cookie non essenziali.</p>
+    <div class="cookie-actions">
+      <button class="btn btn--ghost" id="cookieDecline">Rifiuta</button>
+      <button class="btn btn--primary" id="cookieAccept">Accetta</button>
+    </div>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -513,6 +521,19 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieDecline = document.getElementById('cookieDecline');
+    if (cookieBanner && cookieAccept && cookieDecline) {
+      cookieBanner.classList.add('is-visible');
+      cookieAccept.addEventListener('click', () => {
+        cookieBanner.classList.remove('is-visible');
+      });
+      cookieDecline.addEventListener('click', () => {
+        cookieBanner.classList.remove('is-visible');
+      });
+    }
 
     const carousel = document.querySelector('.carousel__track');
     if (carousel) {

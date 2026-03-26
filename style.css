@@ -689,6 +689,39 @@ a {
   text-align: center;
 }
 
+.footer-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cookie-banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: var(--bg-2);
+  border: 1px solid var(--outline);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  display: none;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.cookie-banner.is-visible {
+  display: flex;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
