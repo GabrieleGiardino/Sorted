@@ -366,6 +366,7 @@ a {
 
 .project-loop.is-scroll {
   overflow-x: auto;
+  overflow-y: visible;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
@@ -375,7 +376,14 @@ a {
   will-change: auto;
 }
 
+.project-loop.is-scroll .project-group[aria-hidden="true"] {
+  display: none;
+}
+
 .project-loop.is-scroll .project-group .project {
+  flex: 0 0 auto;
+  width: 80vw;
+  max-width: 360px;
   scroll-snap-align: center;
 }
 
