@@ -406,7 +406,11 @@
           <h2 data-i18n="quick.h2">Richiesta veloce</h2>
           <p data-i18n="quick.p">Raccolgo due informazioni e ti rispondo il prima possibile.</p>
         </div>
-        <form class="quick-form" aria-label="Contatto rapido">
+        <form class="quick-form" name="quick-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" aria-label="Contatto rapido">
+          <input type="hidden" name="form-name" value="quick-request">
+          <p class="sr-only">
+            <label>Non compilare questo campo: <input name="bot-field"></label>
+          </p>
           <div class="quick-form__row">
             <label>
               <span data-i18n="quick.name">Nome e cognome</span>
@@ -469,8 +473,8 @@
             <textarea name="message" rows="4" placeholder="Raccontami in breve la tua idea"></textarea>
           </label>
           <div class="quick-form__actions">
-            <a class="btn btn--primary" href="mailto:info@sortedbros.com?subject=Richiesta%20veloce%20dal%20sito" data-i18n="quick.send">Invia richiesta</a>
-            <span class="quick-form__note" data-i18n="quick.note">Invio attivo a breve. Per ora usa WhatsApp o email.</span>
+            <button class="btn btn--primary" type="submit" data-i18n="quick.send">Invia richiesta</button>
+            <span class="quick-form__note" data-i18n="quick.note">Invio attivo. Ti rispondo via email.</span>
           </div>
         </form>
       </div>
@@ -710,7 +714,7 @@
         'quick.time': 'Tempistiche',
         'quick.msg': 'Note rapide',
         'quick.send': 'Invia richiesta',
-        'quick.note': 'Invio attivo a breve. Per ora usa WhatsApp o email.',
+        'quick.note': 'Invio attivo. Ti rispondo via email.',
         'footer.brand': 'Sortedbros.',
         'footer.rights': 'Tutti i diritti riservati.'
       },
@@ -814,7 +818,7 @@
         'quick.time': 'Timeline',
         'quick.msg': 'Quick notes',
         'quick.send': 'Send request',
-        'quick.note': 'Sending will be enabled soon. For now use WhatsApp or email.',
+        'quick.note': 'Sending is active. I will reply by email.',
         'footer.brand': 'Sortedbros.',
         'footer.rights': 'All rights reserved.'
       }
