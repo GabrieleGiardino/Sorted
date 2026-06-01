@@ -3,45 +3,45 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Home (IT) -->
   <url>
-    <loc>https://sorted-beryl.vercel.app/</loc>
+    <loc>https://sortedbros.com/</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://sorted-beryl.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sorted-beryl.vercel.app/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sorted-beryl.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/"/>
   </url>
 
   <!-- Landing (IT) -->
   <url>
-    <loc>https://sorted-beryl.vercel.app/landing</loc>
+    <loc>https://sortedbros.com/landing</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://sorted-beryl.vercel.app/landing"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sorted-beryl.vercel.app/en/landing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sorted-beryl.vercel.app/landing"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/landing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en/landing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/landing"/>
   </url>
 
   <!-- Home (EN) -->
   <url>
-    <loc>https://sorted-beryl.vercel.app/en</loc>
+    <loc>https://sortedbros.com/en</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://sorted-beryl.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sorted-beryl.vercel.app/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sorted-beryl.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/"/>
   </url>
 
   <!-- Landing (EN) -->
   <url>
-    <loc>https://sorted-beryl.vercel.app/en/landing</loc>
+    <loc>https://sortedbros.com/en/landing</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://sorted-beryl.vercel.app/landing"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sorted-beryl.vercel.app/en/landing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sorted-beryl.vercel.app/landing"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/landing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en/landing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/landing"/>
   </url>
 </urlset>
