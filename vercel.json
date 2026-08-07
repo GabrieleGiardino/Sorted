@@ -1,4 +1,11 @@
 {
+    "redirects": [
+      {
+        "source": "/en/landing",
+        "destination": "/en",
+        "permanent": true
+      }
+    ],
     "headers": [
       {
         "source": "/sitemap.xml",
