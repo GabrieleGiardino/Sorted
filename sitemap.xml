@@ -4,7 +4,7 @@
   <!-- Home (IT) -->
   <url>
     <loc>https://sortedbros.com/</loc>
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/"/>
@@ -12,36 +12,33 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/"/>
   </url>
 
+  <!-- Web agency Parma (IT) -->
+  <url>
+    <loc>https://sortedbros.com/web-agency-parma/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Landing (IT) -->
   <url>
     <loc>https://sortedbros.com/landing</loc>
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/landing"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en/landing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/landing"/>
   </url>
 
   <!-- Home (EN) -->
   <url>
     <loc>https://sortedbros.com/en</loc>
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/"/>
-  </url>
-
-  <!-- Landing (EN) -->
-  <url>
-    <loc>https://sortedbros.com/en/landing</loc>
-    <lastmod>2025-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/landing"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en/landing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/landing"/>
   </url>
 </urlset>
