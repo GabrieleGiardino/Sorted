@@ -20,6 +20,22 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Blog index -->
+  <url>
+    <loc>https://sortedbros.com/blog/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Blog: Quanto costa un sito web a Parma -->
+  <url>
+    <loc>https://sortedbros.com/blog/quanto-costa-un-sito-web-a-parma/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
   <!-- Landing (IT) -->
   <url>
     <loc>https://sortedbros.com/landing</loc>
