@@ -607,6 +607,16 @@ a {
   font-size: 12px;
 }
 
+.price-guide {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.price-guide a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .step {
   background: var(--card);
   border: 1px solid var(--outline);
