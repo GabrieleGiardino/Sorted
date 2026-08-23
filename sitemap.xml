@@ -38,11 +38,11 @@
 
   <!-- Landing (IT) -->
   <url>
-    <loc>https://sortedbros.com/landing</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://sortedbros.com/landing/</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/landing"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/landing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sortedbros.com/en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sortedbros.com/landing"/>
   </url>
