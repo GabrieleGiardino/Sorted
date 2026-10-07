@@ -11,7 +11,26 @@ const selectedFieldValue = (fields, key) => {
   return field && field.text ? field.text.value : '';
 };
 
-const invoicePayloadFromSession = (session) => ({
+const formatMoney = (amount, currency) => {
+  if (!Number.isFinite(amount)) return '';
+  return new Intl.NumberFormat('it-IT', {
+    style: 'currency',
+    currency: (currency || 'eur').toUpperCase(),
+  }).format(amount / 100);
+};
+
+const formatAddress = (address) => {
+  if (!address) return '';
+  return [
+    address.line1,
+    address.line2,
+    [address.postal_code, address.city, address.state].filter(Boolean).join(' '),
+    address.country,
+  ].filter(Boolean).join(', ');
+};
+
+const invoicePayloadFromSession = (session, stripeEvent) => ({
+  stripeEventId: stripeEvent.id,
   checkoutSessionId: session.id,
   paymentIntentId: session.payment_intent,
   customerId: session.customer,
@@ -27,6 +46,36 @@ const invoicePayloadFromSession = (session) => ({
   currency: session.currency,
   paymentStatus: session.payment_status,
 });
+
+const submitOrderToNetlifyForms = async (event, payload) => {
+  const siteUrl = process.env.URL || `https://${event.headers.host}`;
+  const form = new URLSearchParams({
+    'form-name': 'stripe-order',
+    subject: `Nuovo ordine Stripe SortedBros - ${payload.products || payload.checkoutSessionId}`,
+    checkout_session_id: payload.checkoutSessionId || '',
+    stripe_event_id: payload.stripeEventId || '',
+    payment_intent_id: typeof payload.paymentIntentId === 'string' ? payload.paymentIntentId : payload.paymentIntentId && payload.paymentIntentId.id || '',
+    customer_name: payload.customerName || '',
+    email: payload.customerEmail || '',
+    phone: payload.customerPhone || '',
+    products: payload.products || '',
+    amount: formatMoney(payload.amountTotal, payload.currency),
+    fiscal_identifier: payload.fiscalIdentifier || '',
+    invoice_recipient: payload.invoiceRecipient || '',
+    invoice_notes: payload.invoiceNotes || '',
+    billing_address: formatAddress(payload.billingAddress),
+  });
+
+  const result = await fetch(siteUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: form.toString(),
+  });
+
+  if (!result.ok) {
+    throw new Error(`Netlify form submission failed with ${result.status}`);
+  }
+};
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return response(405, { error: 'Metodo non consentito.' });
@@ -50,8 +99,19 @@ exports.handler = async (event) => {
       const session = await stripe.checkout.sessions.retrieve(stripeEvent.data.object.id, {
         expand: ['line_items', 'payment_intent'],
       });
+      const invoicePayload = invoicePayloadFromSession(session, stripeEvent);
 
-      console.log('SortedBros paid checkout ready for external invoice portal:', invoicePayloadFromSession(session));
+      console.log('SortedBros paid checkout ready for external invoice portal:', invoicePayload);
+
+      try {
+        await submitOrderToNetlifyForms(event, invoicePayload);
+        console.log('SortedBros order submitted to Netlify Forms:', {
+          checkoutSessionId: invoicePayload.checkoutSessionId,
+          customerEmail: invoicePayload.customerEmail,
+        });
+      } catch (error) {
+        console.error('SortedBros Netlify form notification error:', error);
+      }
     }
 
     if (stripeEvent.type === 'checkout.session.async_payment_failed') {

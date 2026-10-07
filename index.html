@@ -92,6 +92,24 @@
   </header>
 
   <main id="top">
+    <form name="stripe-order" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="stripe-order">
+      <input type="hidden" name="subject" value="Nuovo ordine Stripe SortedBros">
+      <input type="text" name="bot-field">
+      <input type="text" name="checkout_session_id">
+      <input type="text" name="stripe_event_id">
+      <input type="text" name="payment_intent_id">
+      <input type="text" name="customer_name">
+      <input type="email" name="email">
+      <input type="text" name="phone">
+      <input type="text" name="products">
+      <input type="text" name="amount">
+      <input type="text" name="fiscal_identifier">
+      <input type="text" name="invoice_recipient">
+      <textarea name="invoice_notes"></textarea>
+      <textarea name="billing_address"></textarea>
+    </form>
+
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
