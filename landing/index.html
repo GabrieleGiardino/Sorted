@@ -9,8 +9,8 @@
   <link rel="canonical" href="https://sortedbros.com/landing/">
 
   <meta name="theme-color" content="#0b0f1a">
-  <link rel="icon" href="/assets/S.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon-sortedbros.png?v=4" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/assets/favicon-sortedbros.png?v=4">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Siti web a Parma per attività che vogliono farsi scegliere | SortedBros">
@@ -28,16 +28,20 @@
   <style>
     .landing-hero { padding: 68px 0 88px; }
     .landing-hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); gap: 42px; align-items: center; }
-    .landing-hero h1 { font-family: "Syne", "Space Grotesk", sans-serif; font-size: clamp(38px, 5.2vw, 66px); line-height: 1.04; margin: 0 0 18px; }
+    .landing-hero h1 { font-family: "DM Sans", system-ui, sans-serif; font-size: clamp(38px, 5.2vw, 66px); font-weight: 500; letter-spacing: -0.055em; line-height: 1.04; margin: 0 0 18px; }
     .landing-hero .lead { max-width: 620px; }
-    .landing-visual { position: relative; }
-    .landing-visual__frame { overflow: hidden; border: 1px solid var(--outline); border-radius: 26px; box-shadow: var(--shadow); aspect-ratio: 4 / 3; background: var(--card); }
+    .landing-visual { position: relative; isolation: isolate; }
+    .landing-visual__frame { position: relative; z-index: 1; overflow: hidden; border: 1px solid var(--outline); border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4 / 3; background: var(--card); }
     .landing-visual__frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .landing-orbit { position: absolute; z-index: 2; width: min(42vw, 270px); aspect-ratio: 1; right: -74px; top: -86px; pointer-events: none; border: 1px solid rgba(90, 240, 223, .52); border-radius: 50%; background: radial-gradient(circle, rgba(90, 240, 223, .18), transparent 62%); animation: orbit-turn 22s linear infinite; }
+    .landing-orbit::before, .landing-orbit::after { content: ""; position: absolute; border-radius: 50%; }
+    .landing-orbit::before { inset: 0; background: radial-gradient(circle at 17% 42%, #edfffe 0 2px, transparent 2.8px), radial-gradient(circle at 28% 18%, #5af0df 0 2px, transparent 2.8px), radial-gradient(circle at 45% 68%, #edfffe 0 1.5px, transparent 2.4px), radial-gradient(circle at 60% 26%, #5af0df 0 1.5px, transparent 2.4px), radial-gradient(circle at 74% 53%, #edfffe 0 2px, transparent 2.8px), radial-gradient(circle at 82% 35%, #5af0df 0 1.5px, transparent 2.4px), radial-gradient(circle at 52% 45%, rgba(90, 240, 223, .94) 0 2px, transparent 3px); animation: particle-drift 7s ease-in-out infinite alternate; }
+    .landing-orbit::after { inset: 24%; border: 1px solid rgba(253, 233, 255, .72); animation: orbit-turn 9s linear infinite reverse; }
     .landing-stats { margin-top: 30px; }
     .landing-stats .stat__num { font-family: "Syne", "Space Grotesk", sans-serif; }
     .landing-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--outline); border: 1px solid var(--outline); border-radius: var(--radius); overflow: hidden; }
-    .landing-proof div { padding: 20px; background: rgba(255, 255, 255, .55); }
-    .landing-proof strong { display: block; font-family: "Syne", "Space Grotesk", sans-serif; font-size: 22px; }
+    .landing-proof div { padding: 28px; background: var(--card); }
+    .landing-proof strong { display: block; font-family: "DM Sans", system-ui, sans-serif; font-size: 22px; font-weight: 500; letter-spacing: -0.04em; }
     .landing-proof span { color: var(--muted); font-size: 13px; }
     .landing-service { min-height: 100%; }
     .landing-service__number { display: block; margin-bottom: 28px; color: var(--accent-2); font-size: 12px; font-weight: 700; letter-spacing: 2px; }
@@ -46,6 +50,8 @@
     .landing-projects .project img { height: 220px; }
     .landing-projects .project__body { display: flex; flex-direction: column; height: 100%; }
     .landing-projects .project-link { margin-top: auto; }
+    .landing-projects .project, .landing-service, .landing-price-grid .price-card, .landing-steps .step { transition: transform .45s cubic-bezier(.2,.75,.25,1), background-color .45s ease, border-color .45s ease; }
+    .landing-projects .project:hover, .landing-service:hover, .landing-price-grid .price-card:hover, .landing-steps .step:hover { transform: translateY(-6px); background: #06433f; border-color: rgba(90, 240, 223, .36); }
     .landing-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .landing-price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .landing-price-grid .price-card { display: flex; flex-direction: column; }
@@ -54,15 +60,21 @@
     .landing-faq details { padding: 18px 0; border-bottom: 1px solid var(--outline); }
     .landing-faq summary { cursor: pointer; font-weight: 700; }
     .landing-faq details p { margin: 10px 0 0; color: var(--muted); }
+    .motion-ready [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.75,.25,1); }
+    .motion-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    .motion-ready [data-reveal] > :nth-child(2) { transition-delay: .08s; }
+    .motion-ready [data-reveal] > :nth-child(3) { transition-delay: .16s; }
+    @keyframes orbit-turn { to { transform: rotate(360deg); } }
+    @keyframes particle-drift { from { transform: scale(.88) rotate(0deg); opacity: .45; } to { transform: scale(1.08) rotate(18deg); opacity: .95; } }
     @media (max-width: 900px) { .landing-hero__grid, .landing-projects, .landing-steps, .landing-price-grid { grid-template-columns: 1fr; } .landing-hero { padding: 46px 0 64px; } .landing-visual { max-width: 560px; } }
     @media (max-width: 560px) { .landing-proof { grid-template-columns: 1fr; } .landing-stats { grid-template-columns: 1fr 1fr; } }
   </style>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"SortedBros","url":"https://sortedbros.com/landing/","image":"https://sortedbros.com/assets/qbeauty-cover.webp","description":"Siti web, landing page e strumenti digitali su misura per attività locali e professionisti a Parma.","address":{"@type":"PostalAddress","addressLocality":"Parma","addressRegion":"PR","addressCountry":"IT"},"areaServed":{"@type":"City","name":"Parma"},"priceRange":"EUR 200-5000+"}
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"SortedBros","url":"https://sortedbros.com/landing/","image":"https://sortedbros.com/assets/qbeauty-cover.webp","description":"Siti web, landing page e strumenti digitali su misura per attività locali e professionisti a Parma.","address":{"@type":"PostalAddress","addressLocality":"Parma","addressRegion":"PR","addressCountry":"IT"},"areaServed":{"@type":"City","name":"Parma"},"priceRange":"EUR 300-3000+"}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto costa un sito web a Parma?","acceptedAnswer":{"@type":"Answer","text":"Una landing page parte da 200-400 euro, un sito vetrina da 300-700 euro. Il costo finale dipende da contenuti, funzionalità e obiettivi del progetto."}},{"@type":"Question","name":"In quanto tempo viene realizzato un sito?","acceptedAnswer":{"@type":"Answer","text":"Un sito vetrina o una landing page viene normalmente consegnato in 1-3 settimane, dopo l'allineamento iniziale su obiettivi e contenuti."}},{"@type":"Question","name":"Il sito include ottimizzazione SEO?","acceptedAnswer":{"@type":"Answer","text":"Ogni progetto include le basi SEO on-page: struttura dei contenuti, performance, meta tag e dati strutturati quando utili."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto costa un sito web a Parma?","acceptedAnswer":{"@type":"Answer","text":"Una landing page parte da 300 euro IVA inclusa, un sito vetrina da 500 euro IVA inclusa. Il costo finale dipende da contenuti, funzionalità e obiettivi del progetto."}},{"@type":"Question","name":"In quanto tempo viene realizzato un sito?","acceptedAnswer":{"@type":"Answer","text":"Un sito vetrina o una landing page viene normalmente consegnato in 1-3 settimane, dopo l'allineamento iniziale su obiettivi e contenuti."}},{"@type":"Question","name":"Il sito include ottimizzazione SEO?","acceptedAnswer":{"@type":"Answer","text":"Ogni progetto include le basi SEO on-page: struttura dei contenuti, performance, meta tag e dati strutturati quando utili."}}]}
   </script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4KE77SY0X"></script>
@@ -80,10 +92,14 @@
         <img class="brand-logo" src="/assets/SortedBros.webp" width="140" height="36" alt="Logo SortedBros">
         <span class="brand-tag">SortedBros</span>
       </a>
+      <button class="hamburger" id="landingMenuToggle" aria-controls="landing-menu" aria-expanded="false" aria-label="Apri o chiudi il menu">
+        <span></span><span></span><span></span>
+      </button>
       <nav aria-label="Navigazione landing">
-        <ul class="menu">
+        <ul class="menu" id="landing-menu">
           <li><a href="#servizi">Servizi</a></li>
           <li><a href="#progetti">Progetti</a></li>
+          <li><a href="/shop/">Shop</a></li>
           <li><a href="#prezzi">Prezzi</a></li>
           <li><a class="btn btn--primary" href="#contatti">Parliamone</a></li>
         </ul>
@@ -109,12 +125,13 @@
           </div>
         </div>
         <div class="landing-visual">
+          <div class="landing-orbit" aria-hidden="true"></div>
           <div class="landing-visual__frame"><img src="/assets/qbeauty-cover.webp" alt="Anteprima di un sito web sviluppato da SortedBros" width="900" height="650" fetchpriority="high"></div>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt" data-reveal>
       <div class="container landing-proof" aria-label="Cosa aspettarti">
         <div><strong>Niente pacchetti finti</strong><span>Si parte da ciò che serve davvero al tuo business.</span></div>
         <div><strong>Design con uno scopo</strong><span>Ogni sezione accompagna verso una richiesta o una prenotazione.</span></div>
@@ -122,7 +139,7 @@
       </div>
     </section>
 
-    <section id="servizi" class="section">
+    <section id="servizi" class="section" data-reveal>
       <div class="container">
         <div class="section__head"><p class="eyebrow">Cosa possiamo costruire</p><h2>Una presenza digitale che lavora con te.</h2><p>Dal sito essenziale a uno strumento più articolato: scegliamo il formato che risolve il problema, non quello di moda.</p></div>
         <div class="grid-3">
@@ -133,7 +150,7 @@
       </div>
     </section>
 
-    <section id="progetti" class="section alt">
+    <section id="progetti" class="section alt" data-reveal>
       <div class="container">
         <div class="section__head"><p class="eyebrow">Lavori reali</p><h2>Progetti costruiti per business diversi.</h2><p>Ogni identità richiede un ritmo, un messaggio e un percorso utente propri.</p></div>
         <div class="grid-3 landing-projects">
@@ -144,7 +161,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <div class="container">
         <div class="section__head"><p class="eyebrow">Come lavoriamo</p><h2>Pochi passaggi, tutti utili.</h2></div>
         <div class="landing-steps">
@@ -155,33 +172,57 @@
       </div>
     </section>
 
-    <section id="prezzi" class="section alt">
+    <section id="prezzi" class="section alt" data-reveal>
       <div class="container">
         <div class="section__head"><p class="eyebrow">Budget chiaro</p><h2>Indicazioni di prezzo, senza sorprese.</h2><p>Il preventivo finale dipende da contenuti, funzionalità e tempistiche. Questi sono i punti di partenza.</p></div>
         <div class="landing-price-grid">
-          <article class="price-card"><h3>Landing page</h3><p class="price-value">€200 - €400+</p><p>Una pagina per presentare un servizio, generare contatti o raccogliere prenotazioni.</p><a class="btn btn--ghost" href="/blog/quanto-costa-un-sito-web-a-parma/">Scopri cosa include</a></article>
-          <article class="price-card"><h3>Sito vetrina</h3><p class="price-value">€300 - €700+</p><p>Una presenza completa e ordinata per attività locali e professionisti.</p><a class="btn btn--ghost" href="#contatti">Chiedi un preventivo</a></article>
-          <article class="price-card"><h3>Tool su misura</h3><p class="price-value">Da €1.200</p><p>Automazioni, prenotazioni o dashboard modellate sul tuo flusso di lavoro.</p><a class="btn btn--ghost" href="#contatti">Valutiamo l'idea</a></article>
+          <article class="price-card"><h3>Landing page</h3><p class="price-value">Da €300 IVA inclusa</p><p>Una pagina per presentare un servizio, generare contatti o raccogliere prenotazioni. Dominio incluso per il primo anno.</p><a class="btn btn--ghost" href="/blog/quanto-costa-un-sito-web-a-parma/">Scopri cosa include</a></article>
+          <article class="price-card"><h3>Sito vetrina</h3><p class="price-value">Da €500 IVA inclusa</p><p>Una presenza completa e ordinata per attività locali e professionisti. Dominio incluso per il primo anno.</p><a class="btn btn--ghost" href="#contatti">Chiedi un preventivo</a></article>
+          <article class="price-card"><h3>Altri servizi</h3><p class="price-value">Su richiesta</p><p>Se il tuo progetto non rientra nelle categorie precedenti, scrivici: lo valuteremo insieme.</p><a class="btn btn--ghost" href="#contatti">Parliamone</a></article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <div class="container landing-faq">
         <div class="section__head"><p class="eyebrow">Prima di iniziare</p><h2>Domande frequenti</h2></div>
-        <details><summary>Quanto costa un sito web a Parma?</summary><p>Una landing page parte da 200-400€, un sito vetrina da 300-700€. Il costo dipende da contenuti, funzionalità e obiettivi. Trovi una spiegazione dettagliata nella <a href="/blog/quanto-costa-un-sito-web-a-parma/">guida ai costi di un sito web a Parma</a>.</p></details>
+        <details><summary>Quanto costa un sito web a Parma?</summary><p>Una landing page parte da 300€ IVA inclusa, un sito vetrina da 500€ IVA inclusa. Il costo dipende da contenuti, funzionalità e obiettivi. Trovi una spiegazione dettagliata nella <a href="/blog/quanto-costa-un-sito-web-a-parma/">guida ai costi di un sito web a Parma</a>.</p></details>
         <details><summary>In quanto tempo viene realizzato un sito?</summary><p>Per un progetto standard servono normalmente da una a tre settimane dopo l'allineamento iniziale su contenuti e obiettivi.</p></details>
         <details><summary>Il sito include SEO?</summary><p>Sì: struttura dei contenuti, velocità, meta tag e basi tecniche per consentire a Google di comprendere la pagina. L'attività SEO continuativa è un servizio separato.</p></details>
         <details><summary>Lavorate solo con attività di Parma?</summary><p>Il focus è Parma e provincia, ma lavoriamo senza problemi anche da remoto.</p></details>
       </div>
     </section>
 
-    <section id="contatti" class="section cta">
+    <section id="contatti" class="section cta" data-reveal>
       <div class="container"><div class="cta__box"><p class="eyebrow">Il prossimo passo</p><h2>Hai un progetto in mente?</h2><p>Raccontaci cosa vuoi migliorare. La prima chiacchierata è gratuita e serve a capire se possiamo davvero esserti utili.</p><div class="cta__actions"><a class="btn btn--primary" href="/#richiesta">Racconta il tuo progetto</a><a class="btn btn--ghost" href="mailto:info@sortedbros.com">info@sortedbros.com</a></div></div></div>
     </section>
   </main>
 
   <footer class="footer"><div class="container"><p>© <span id="year"></span> SortedBros. Tutti i diritti riservati. · <a href="/privacy.html" class="footer-link">Privacy Policy</a></p></div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById('landingMenuToggle');
+    const landingMenu = document.getElementById('landing-menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = landingMenu.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('motion-ready');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('[data-reveal]').forEach((section) => observer.observe(section));
+    }
+  </script>
 </body>
 </html>

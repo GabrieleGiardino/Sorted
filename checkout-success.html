@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Pagamento ricevuto | SortedBros</title>
+  <link rel="icon" href="/assets/favicon-sortedbros.png?v=4" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .checkout-page { min-height: 100vh; display: grid; place-items: center; padding: 32px 0; background: radial-gradient(circle at 20% 0%, rgba(90,240,223,.16), transparent 38%), var(--bg); }
+    .checkout-card { max-width: 680px; padding: clamp(30px, 7vw, 68px); border: 1px solid var(--outline); border-radius: 22px; background: var(--card); text-align: center; }
+    .checkout-mark { display: grid; width: 56px; height: 56px; place-items: center; margin: 0 auto 22px; border-radius: 50%; background: var(--accent); color: #012624; font-size: 28px; font-weight: 800; }
+    .checkout-card h1 { margin: 0 0 16px; font-size: clamp(36px, 6vw, 64px); line-height: .98; }
+    .checkout-card p { color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .checkout-card .btn { margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <main class="checkout-page">
+    <section class="checkout-card">
+      <div class="checkout-mark" aria-hidden="true">✓</div>
+      <p class="eyebrow">Pagamento ricevuto</p>
+      <h1>Ora parte la parte importante.</h1>
+      <p>Abbiamo ricevuto il tuo ordine. Gabriele e Alessandro ti contatteranno per raccogliere i dettagli, definire le priorita e completare l'emissione della fattura dal portale dedicato.</p>
+      <a class="btn btn--primary" href="/">Torna al sito</a>
+    </section>
+  </main>
+</body>
+</html>

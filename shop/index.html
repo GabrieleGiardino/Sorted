@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop | SortedBros - Strumenti per farti scegliere</title>
+  <meta name="description" content="Siti web, contenuti, QR per recensioni e strumenti digitali pronti per la tua attivita.">
+  <link rel="canonical" href="https://sortedbros.com/shop/">
+  <meta name="theme-color" content="#012624">
+  <link rel="icon" href="/assets/favicon-sortedbros.png?v=4" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/assets/favicon-sortedbros.png?v=4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shop | SortedBros">
+  <meta property="og:description" content="Strumenti digitali e fisici per farti scegliere piu facilmente.">
+  <meta property="og:url" content="https://sortedbros.com/shop/">
+  <meta property="og:image" content="https://sortedbros.com/assets/SortedBros.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .shop-hero { padding: 74px 0 46px; }
+    .shop-hero__grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr); gap: 28px; align-items: end; }
+    .shop-hero h1 { max-width: 800px; margin: 0; font-size: clamp(42px, 6.2vw, 78px); font-weight: 500; letter-spacing: -.07em; line-height: .96; }
+    .shop-hero h1 em { color: var(--accent); font-style: normal; }
+    .shop-hero__aside { padding: 22px; border: 1px solid var(--outline); border-radius: var(--radius); background: rgba(0, 55, 52, .6); }
+    .shop-hero__aside p { margin: 0; color: var(--muted); font-size: 16px; }
+    .shop-hero__aside strong { color: var(--text); font-weight: 500; }
+    .shop-strip { overflow: hidden; border-block: 1px solid var(--outline); background: rgba(90, 240, 223, .08); }
+    .shop-strip__track { display: flex; width: max-content; padding: 13px 0; animation: shop-marquee 22s linear infinite; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+    .shop-strip__group { display: flex; flex: 0 0 auto; gap: 34px; padding-right: 34px; }
+    .shop-strip__track span::before { content: "+"; margin-right: 34px; color: var(--accent-2); }
+    .shop-intro { display: flex; justify-content: space-between; align-items: end; gap: 22px; margin-bottom: 28px; }
+    .shop-intro h2 { margin: 0; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.05; }
+    .shop-intro p { max-width: 480px; margin: 0; color: var(--muted); }
+    .shop-filters { display: flex; gap: 9px; flex-wrap: wrap; }
+    .shop-filter { border: 1px solid var(--outline); border-radius: 999px; background: transparent; color: var(--muted); padding: 9px 13px; cursor: pointer; font: inherit; font-size: 13px; }
+    .shop-filter:hover, .shop-filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #012624; }
+    .shop-commerce-filters { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-top: 12px; padding: 12px 0 0; border-top: 1px solid var(--outline); }
+    .shop-commerce-filters p { margin: 0 4px 0 0; color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
+    .shop-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .shop-product { display: flex; min-height: 430px; flex-direction: column; overflow: hidden; border: 1px solid var(--outline); border-radius: var(--radius); background: linear-gradient(145deg, rgba(0, 70, 65, .95), rgba(0, 39, 37, .9)); transition: transform .35s cubic-bezier(.2,.75,.25,1), border-color .35s ease; }
+    .shop-product:hover { transform: translateY(-6px); border-color: rgba(90, 240, 223, .6); }
+    .shop-product.is-hidden { display: none; }
+    .shop-product__image { position: relative; height: 180px; overflow: hidden; background: #f8f8f3; }
+    .shop-product__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.75,.25,1); }
+    .shop-product__image video { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.75,.25,1); }
+    .shop-product:hover .shop-product__image img { transform: scale(1.05); }
+    .shop-product:hover .shop-product__image video { transform: scale(1.05); }
+    .shop-product__image span { position: absolute; left: 14px; top: 14px; padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.92); color: #013b37; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+    .shop-product__body { display: flex; flex: 1; flex-direction: column; padding: 20px 22px 22px; }
+    .shop-product__top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    .shop-product__icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; background: rgba(253, 233, 255, .12); color: var(--accent-2); font-weight: 700; font-size: 18px; }
+    .shop-product__type { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+    .shop-product h3 { margin: 20px 0 9px; font-size: 26px; line-height: 1; }
+    .shop-product p { margin: 0; color: var(--muted); font-size: 14px; }
+    .shop-product__meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0; }
+    .shop-product__meta span { padding: 5px 8px; border: 1px solid var(--outline); border-radius: 999px; color: var(--muted); font-size: 11px; }
+    .shop-product__bottom { margin-top: auto; display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+    .shop-price small { display: block; margin-bottom: 1px; color: var(--muted); font-size: 11px; }
+    .shop-price strong { font-size: 23px; font-weight: 500; color: var(--accent-2); letter-spacing: -.04em; }
+    .shop-product .btn { padding: 9px 12px; font-size: 13px; cursor: pointer; }
+    .shop-product__actions { display: flex; gap: 8px; }
+    .shop-product__actions .btn { background: transparent; color: var(--text); }
+    .shop-cart { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 11px 15px; background: var(--accent-2); color: #012624; box-shadow: 0 12px 36px rgba(0,0,0,.28); font: inherit; font-weight: 700; cursor: pointer; }
+    .shop-cart__count { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #012624; color: #fff; font-size: 11px; }
+    .shop-dialog { width: min(690px, calc(100vw - 32px)); max-height: min(760px, calc(100vh - 32px)); padding: 0; overflow: auto; border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: #012624; color: var(--text); }
+    .shop-dialog::backdrop { background: rgba(0,15,14,.76); backdrop-filter: blur(6px); }
+    .shop-dialog__content { display: grid; grid-template-columns: .9fr 1.1fr; }
+    .shop-dialog__media { position: relative; display: grid; min-height: 420px; overflow: hidden; place-items: center; background: #071514; }
+    .shop-dialog__media img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
+    .shop-dialog__media video { display: none; width: 100%; height: 100%; object-fit: contain; background: #000; }
+    .shop-dialog__media.is-playing video { display: block; }
+    .shop-dialog__media.is-playing img, .shop-dialog__media.is-playing .shop-video-play { display: none; }
+    .shop-video-play { position: absolute; display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px; background: rgba(1,38,36,.82); color: #fff; cursor: pointer; font: inherit; font-weight: 700; backdrop-filter: blur(8px); }
+    .shop-video-play[hidden] { display: none; }
+    .shop-video-play::before { content: ""; width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 9px solid var(--accent); }
+    .shop-dialog__copy { padding: 32px; }
+    .shop-dialog__copy h2 { margin: 10px 0; font-size: 38px; line-height: 1; }
+    .shop-dialog__copy p { color: var(--muted); }
+    .shop-detail-description { color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .shop-detail-description p { margin: 0 0 12px; }
+    .shop-detail-description strong { color: var(--text); }
+    .shop-detail-description ul { display: grid; gap: 7px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .shop-detail-description li { position: relative; padding-left: 16px; }
+    .shop-detail-description li::before { content: ""; position: absolute; top: .62em; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .shop-detail-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 20px 0; }
+    .shop-detail-gallery img { width: 100%; aspect-ratio: 1; border: 1px solid var(--outline); border-radius: 9px; object-fit: cover; background: #fff; }
+    .shop-dialog__close { float: right; border: 0; background: transparent; color: var(--text); cursor: pointer; font: inherit; font-size: 24px; }
+    .shop-dialog__price { display: block; margin: 24px 0 16px; color: var(--accent); font-size: 28px; font-weight: 700; }
+    .shop-cart-dialog { width: min(520px, calc(100vw - 32px)); padding: 28px; border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: #012624; color: var(--text); }
+    .shop-cart-dialog::backdrop { background: rgba(0,15,14,.76); backdrop-filter: blur(6px); }
+    .shop-cart-dialog h2 { margin: 0 0 20px; font-size: 34px; }
+    .shop-cart-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--outline); }
+    .shop-cart-row p { margin: 0; font-size: 14px; }
+    .shop-cart-row small { color: var(--muted); }
+    .shop-cart-remove { border: 0; background: none; color: var(--accent-2); cursor: pointer; text-decoration: underline; }
+    .shop-cart-total { display: flex; justify-content: space-between; margin: 20px 0; font-size: 18px; }
+    .shop-checkout-note { margin: 16px 0; padding: 13px; border-left: 2px solid var(--accent); background: rgba(90,240,223,.08); color: var(--muted); font-size: 13px; }
+    .shop-checkout-status { min-height: 20px; margin: 12px 0 0; color: var(--accent); font-size: 13px; }
+    .shop-checkout-status.is-error { color: #ffb5a8; }
+    .shop-path { display: grid; grid-template-columns: .9fr 1.1fr; gap: 16px; align-items: stretch; }
+    .shop-path__lead { padding: 30px; border-radius: var(--radius); background: var(--accent-2); color: #012624; }
+    .shop-path__lead .eyebrow { color: #115b55; }
+    .shop-path__lead h2 { margin: 0 0 12px; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.02; }
+    .shop-path__lead p { margin: 0; color: #185d57; }
+    .shop-why { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 42px; align-items: start; }
+    .shop-why h2 { margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: .98; }
+    .shop-why__lead { margin: 20px 0 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .shop-why__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .shop-why__card { min-height: 220px; padding: 22px; border: 1px solid var(--outline); border-radius: 14px; background: linear-gradient(145deg, rgba(0, 70, 65, .7), rgba(0, 39, 37, .92)); }
+    .shop-why__number { display: block; margin-bottom: 34px; color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1.4px; }
+    .shop-why__card h3 { margin: 0 0 10px; font-size: 20px; line-height: 1.05; }
+    .shop-why__card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .shop-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--outline); border-radius: var(--radius); background: var(--outline); }
+    .shop-step { padding: 22px; background: var(--card); }
+    .shop-step strong { display: block; margin-bottom: 18px; color: var(--accent); font-size: 12px; letter-spacing: 1.5px; }
+    .shop-step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .shop-note { display: flex; gap: 14px; align-items: start; margin-top: 18px; padding: 16px 18px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 13px; }
+    .shop-note strong { color: var(--text); }
+    @keyframes shop-marquee { to { transform: translateX(-25%); } }
+    @media (max-width: 920px) { .shop-hero__grid, .shop-path, .shop-why { grid-template-columns: 1fr; } .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .shop-hero { padding: 52px 0 38px; } .shop-intro { display: block; } .shop-intro p { margin-top: 12px; } .shop-grid, .shop-steps, .shop-dialog__content, .shop-why__grid { grid-template-columns: 1fr; } .shop-product { min-height: 0; } .shop-dialog__media { min-height: 280px; max-height: 380px; } .shop-dialog__copy { padding: 24px; } .shop-cart { right: 14px; bottom: 14px; } .shop-why__card { min-height: 0; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="SortedBros home">
+        <img class="brand-logo" src="/assets/SortedBros.webp" alt="Logo SortedBros" width="140" height="36" decoding="async">
+        <span class="brand-tag">SortedBros</span>
+      </a>
+      <button class="hamburger" id="shopMenuToggle" aria-controls="shop-menu" aria-expanded="false" aria-label="Apri o chiudi il menu"><span></span><span></span><span></span></button>
+      <nav aria-label="Navigazione shop">
+        <ul class="menu" id="shop-menu">
+          <li><a href="/#soluzioni">Servizi</a></li>
+          <li><a href="/#progetti">Progetti</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><button class="btn btn--primary" id="shopCartButton" type="button">Carrello <span class="shop-cart__count" data-cart-count>0</span></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="shop-hero">
+      <div class="container shop-hero__grid">
+        <div>
+          <p class="eyebrow">SortedBros shop</p>
+          <h1>Il tuo prossimo progetto, <em>senza sorprese.</em></h1>
+        </div>
+        <div class="shop-hero__aside">
+          <p>I quattro servizi del nostro listino, con un punto di partenza chiaro. Se ti serve altro, trovi tutti i servizi aggiuntivi in una pagina dedicata.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="shop-strip" aria-hidden="true"><div class="shop-strip__track"><div class="shop-strip__group"><span>LANDING PAGE</span><span>SITI VETRINA</span><span>AGENDE ONLINE</span><span>E-COMMERCE</span></div><div class="shop-strip__group"><span>LANDING PAGE</span><span>SITI VETRINA</span><span>AGENDE ONLINE</span><span>E-COMMERCE</span></div><div class="shop-strip__group"><span>LANDING PAGE</span><span>SITI VETRINA</span><span>AGENDE ONLINE</span><span>E-COMMERCE</span></div><div class="shop-strip__group"><span>LANDING PAGE</span><span>SITI VETRINA</span><span>AGENDE ONLINE</span><span>E-COMMERCE</span></div></div></div>
+
+    <section id="catalogo" class="section">
+      <div class="container">
+        <div class="shop-intro">
+          <div><p class="eyebrow">Listino servizi</p><h2>Scegli il punto di partenza.</h2></div>
+          <p>Questi sono i servizi con un prezzo di partenza pubblico. Il perimetro finale viene sempre definito insieme prima di iniziare.</p>
+        </div>
+        <div class="shop-grid" style="margin-top: 18px;">
+          <article class="shop-product" id="shop-landing" data-category="web" data-name="Landing che converte" data-price="300" data-image="/assets/shop-cover-landing.png" data-gallery="/assets/shop-website.png|/assets/shop-rebrand-detail.png|/assets/shop-content-kit.png" data-description="Una pagina veloce e focalizzata per campagne, servizi o nuove aperture.">
+            <div class="shop-product__image"><img src="/assets/shop-cover-landing.png" alt="Landing page visualizzata su laptop e smartphone" loading="lazy"><span>Digitale</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Landing</span><span class="shop-product__icon">01</span></div>
+            <h3>Landing che converte</h3><p>Una pagina veloce e focalizzata per campagne, servizi o nuove aperture.</p>
+            <div class="shop-product__meta"><span>Copy base</span><span>SEO tecnico</span><span>Dominio 1o anno</span></div>
+            <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 300</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
+          </article>
+          <article class="shop-product" id="shop-sito-business" data-category="web" data-name="Sito business" data-price="500" data-image="/assets/shop-cover-business.png" data-gallery="/assets/shop-website.png|/assets/shop-rebrand-detail.png|/assets/shop-content-kit.png" data-description="La base solida per presentare attivita, servizi, metodo e contatti in modo professionale.">
+            <div class="shop-product__image"><img src="/assets/shop-cover-business.png" alt="Sito business su monitor in uno studio professionale" loading="lazy"><span>Digitale</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Sito web</span><span class="shop-product__icon">02</span></div>
+            <h3>Sito business</h3><p>La base solida per presentare attivita, servizi, metodo e contatti in modo professionale.</p>
+            <div class="shop-product__meta"><span>Fino a 5 pagine</span><span>Mobile-first</span><span>Dominio 1o anno</span></div>
+            <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 500</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
+          </article>
+          <article class="shop-product" id="shop-agenda" data-category="web" data-name="Agenda e prenotazioni" data-price="1500" data-image="/assets/shop-cover-booking.png" data-gallery="/assets/shop-tools-detail.png|/assets/shop-website.png|/assets/shop-qr-plaque.png" data-description="Un sistema di prenotazioni con agenda, reminder e gestione clienti per ridurre messaggi e passaggi manuali.">
+            <div class="shop-product__image"><img src="/assets/shop-cover-booking.png" alt="Agenda digitale su tablet e smartphone" loading="lazy"><span>Tool e booking</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Booking</span><span class="shop-product__icon">AG</span></div>
+            <h3>Agenda e prenotazioni</h3><p>Una giornata piu ordinata, con appuntamenti e promemoria sotto controllo.</p><div class="shop-product__meta"><span>Agenda</span><span>90 giorni supporto</span><span>Dominio 1o anno</span></div>
+            <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 1.500</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
+          </article>
+          <article class="shop-product" id="shop-ecommerce" data-category="web" data-name="E-commerce completo" data-price="3000" data-image="/assets/shop-ecommerce-detail.png" data-gallery="/assets/shop-ecommerce-detail.png|/assets/shop-website.png|/assets/shop-content-kit.png" data-description="Un negozio online completo, con catalogo, pagamenti e un percorso d'acquisto pensato per vendere.">
+            <div class="shop-product__image"><img src="/assets/shop-ecommerce-detail.png" alt="E-commerce con prodotti e spedizione" loading="lazy"><span>Store e-commerce</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Store completo</span><span class="shop-product__icon">EC</span></div>
+            <h3>E-commerce completo</h3><p>Catalogo, pagamenti e UX chiara per vendere prodotti online con serenita.</p><div class="shop-product__meta"><span>Catalogo</span><span>90 giorni supporto</span><span>Dominio 1o anno</span></div>
+            <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 3.000</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
+          </article>
+        </div>
+        <div class="shop-path" style="margin-top: 24px;">
+          <div class="shop-path__lead"><p class="eyebrow">Altri servizi</p><h2>Ti serve qualcosa di diverso?</h2><p>Video, contenuti, targhette QR e Google Business sono raccolti in una pagina dedicata, sempre acquistabili online.</p></div>
+          <div class="shop-step"><strong>ESPLORA</strong><p>Scopri i servizi aggiuntivi disponibili e scegli quello piu utile per la tua attivita.</p><p style="margin-top: 18px;"><a class="btn btn--primary" href="/shop/altri-servizi/">Vai agli altri servizi</a></p></div>
+        </div>
+        <p class="shop-note"><strong>Acquisti un punto di partenza, non una scatola chiusa.</strong> I prezzi indicano il perimetro iniziale; per le soluzioni su misura, ogni estensione viene spiegata e approvata prima di essere realizzata.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="perche-sortedbros">
+      <div class="container shop-why">
+        <div>
+          <p class="eyebrow">Perche SortedBros</p>
+          <h2>Non consegniamo solo pagine. Mettiamo ordine nelle cose che contano.</h2>
+          <p class="shop-why__lead">Siamo Gabriele e Alessandro. Prima di aprire il computer ascoltiamo come lavori, dove perdi tempo e cosa deve capire una persona per sceglierti. Poi trasformiamo quella chiarezza in un'esperienza digitale curata, veloce e utile.</p>
+        </div>
+        <div class="shop-why__grid">
+          <article class="shop-why__card"><span class="shop-why__number">01 / PRIMA CAPIAMO</span><h3>Partiamo dal tuo lavoro vero.</h3><p>Niente soluzioni messe sopra al business: definiamo priorita, clienti e passaggi che devono diventare piu semplici.</p></article>
+          <article class="shop-why__card"><span class="shop-why__number">02 / POI CURIAMO</span><h3>Ogni dettaglio deve avere un motivo.</h3><p>Testi, immagini, interazioni e flussi non servono a fare scena. Servono a farti capire, ricordare e contattare.</p></article>
+          <article class="shop-why__card"><span class="shop-why__number">03 / RESTIAMO PRESENTI</span><h3>Consegniamo qualcosa che sai usare.</h3><p>Ti accompagniamo nel passaggio finale, con una base solida da aggiornare e una persona reale da ricontattare.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container shop-path">
+        <div class="shop-path__lead"><p class="eyebrow">Come funziona</p><h2>Niente sorprese, solo passi chiari.</h2><p>Scegli il punto di partenza, paghi in modo sicuro e poi costruiamo insieme la versione giusta per il tuo progetto.</p></div>
+        <div class="shop-steps"><div class="shop-step"><strong>01 / SCEGLI</strong><p>Parti dal prodotto che risolve il problema piu vicino al tuo.</p></div><div class="shop-step"><strong>02 / ACQUISTA</strong><p>Usi il checkout sicuro Stripe: prezzo, riepilogo e dati di pagamento sono sempre chiari.</p></div><div class="shop-step"><strong>03 / COSTRUIAMO</strong><p>Ti contattiamo per raccogliere i dettagli e definire con te tempi e perimetro reale.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta__box">
+        <p class="eyebrow">Non trovi quello che cerchi?</p><h2>Creiamo anche soluzioni su misura.</h2><p>Raccontaci la tua idea: siti, prodotti, automazioni o un mix di tutto questo.</p><a class="btn btn--primary" href="mailto:info@sortedbros.com?subject=Richiesta%20progetto%20su%20misura">Parliamone</a>
+      </div>
+    </section>
+  </main>
+
+  <button class="shop-cart" type="button" id="shopCartFloating">Carrello <span class="shop-cart__count" data-cart-count>0</span></button>
+  <dialog class="shop-dialog" id="productDialog">
+    <div class="shop-dialog__content"><div class="shop-dialog__media"><img id="dialogImage" src="" alt=""><video id="dialogVideo" muted loop playsinline controls poster="/assets/shop-ecommerce-poster.jpg" hidden></video><button class="shop-video-play" id="dialogPlayButton" type="button" hidden>Guarda il video</button></div><div class="shop-dialog__copy"><button class="shop-dialog__close" type="button" data-close-dialog aria-label="Chiudi">x</button><p class="eyebrow">Dettaglio prodotto</p><h2 id="dialogTitle"></h2><div class="shop-detail-description" id="dialogDescription"></div><div class="shop-detail-gallery" id="dialogGallery" aria-label="Anteprime del servizio"></div><span class="shop-dialog__price" id="dialogPrice"></span><button class="btn btn--primary" type="button" id="dialogAdd">Aggiungi al carrello</button></div></div>
+  </dialog>
+  <dialog class="shop-cart-dialog" id="cartDialog">
+    <button class="shop-dialog__close" type="button" data-close-dialog aria-label="Chiudi">x</button><h2>Il tuo carrello</h2><div id="cartItems"></div><div class="shop-cart-total"><span>Totale</span><strong id="cartTotal">EUR 0</strong></div><p class="shop-checkout-note"><strong>Pagamento sicuro con Stripe.</strong> Nel checkout ti chiediamo anche i dati necessari per emettere la fattura dal nostro portale.</p><button class="btn btn--primary" type="button" id="checkoutButton">Vai al pagamento sicuro</button><p class="shop-checkout-status" id="checkoutStatus" role="status"></p>
+  </dialog>
+
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> SortedBros. Tutti i diritti riservati. <a class="footer-link" href="/privacy.html">Privacy Policy</a></p></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuToggle = document.getElementById('shopMenuToggle');
+    const menu = document.getElementById('shop-menu');
+    menuToggle.addEventListener('click', () => { const open = menu.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); });
+    const filters = document.querySelectorAll('.shop-filter');
+    const products = document.querySelectorAll('.shop-product');
+    const productDetails = {
+      'Landing che converte': '<p><strong>Una pagina singola pensata per trasformare una visita in un contatto.</strong> Partiamo da un obiettivo preciso: richiesta preventivo, prenotazione, lancio di un servizio o nuova apertura.</p><ul><li>Struttura della pagina, testi essenziali e una call to action chiara.</li><li>Design su misura, ottimizzato per mobile e caricamento veloce.</li><li>Modulo contatti o collegamento WhatsApp, mappe e tracciamenti base.</li><li>SEO tecnico di partenza: titoli, descrizioni e impostazioni per Google.</li><li>Dominio incluso per il primo anno.</li></ul><p>Ricevi una landing pronta da pubblicare. Foto, campagne pubblicitarie e copy complesso vengono definiti a parte se necessari.</p>',
+      'Sito business': '<p><strong>Il sito istituzionale per raccontare bene la tua attivita e farti trovare.</strong> Costruiamo un percorso semplice: chi sei, cosa offri, perche sceglierti e come contattarti.</p><ul><li>Da 1 a 5 pagine: home, servizi, chi siamo, contatti e una pagina aggiuntiva.</li><li>Layout personalizzato, responsive e coerente con il tuo brand.</li><li>Modulo contatti, collegamenti social, mappa e pulsanti rapidi.</li><li>SEO base on-page e configurazione tecnica per l\'indicizzazione.</li><li>Dominio incluso per il primo anno.</li></ul><p>Il pacchetto non include e-commerce, area riservata o funzionalita gestionali: per quelli prepariamo un preventivo dedicato.</p>',
+      'E-commerce completo': '<p><strong>Un negozio online progettato per vendere, non solo per mostrare prodotti.</strong> Disegniamo il percorso dall\'ingresso nel catalogo al checkout, con una struttura semplice da gestire.</p><ul><li>Architettura dello store, pagine prodotto, carrello e checkout.</li><li>Configurazione di pagamenti, spedizioni e categorie principali.</li><li>Design responsive e percorso di acquisto chiaro.</li><li>SEO tecnico base e formazione essenziale per caricare prodotti.</li><li>Dominio incluso per il primo anno e 90 giorni di supporto tecnico.</li></ul><p>Al termine del supporto iniziale, la gestione parte da EUR 30 al mese. Numero di prodotti, piattaforma, integrazioni, testi, foto e gestione inventario vengono definiti nel brief: sono quelli che fanno variare il costo finale.</p>',
+      'Agenda e prenotazioni': '<p><strong>Un sistema che raccoglie appuntamenti e riduce messaggi, telefonate e doppie prenotazioni.</strong> Lo adattiamo al modo in cui lavori e alle informazioni che ti servono davvero.</p><ul><li>Flusso di prenotazione, servizi, durate e disponibilita.</li><li>Agenda consultabile e collegamento al sito o ai social.</li><li>Campi cliente e reminder configurati dove la piattaforma lo permette.</li><li>Test del percorso e consegna con istruzioni di utilizzo.</li><li>Dominio incluso per il primo anno e 90 giorni di supporto tecnico.</li></ul><p>Al termine del supporto iniziale, la gestione parte da EUR 15 al mese. Licenze della piattaforma, sincronizzazioni avanzate e automazioni complesse sono valutate in base al software scelto.</p>',
+    };
+    filters.forEach((filter) => filter.addEventListener('click', () => {
+      const category = filter.dataset.filter;
+      filters.forEach((item) => item.setAttribute('aria-pressed', String(item === filter)));
+      products.forEach((product) => product.classList.toggle('is-hidden', category !== 'all' && !product.dataset.category.split(' ').includes(category)));
+    }));
+    const productDialog = document.getElementById('productDialog');
+    const cartDialog = document.getElementById('cartDialog');
+    const cart = [];
+    let selectedProduct;
+    const formatPrice = (price) => `EUR ${Number(price).toLocaleString('it-IT')}`;
+    const updateCart = () => {
+      document.querySelectorAll('[data-cart-count]').forEach((count) => { count.textContent = cart.length; });
+      const cartItems = document.getElementById('cartItems');
+      const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+      cartItems.innerHTML = cart.length ? cart.map((item, index) => `<div class="shop-cart-row"><div><p>${item.name}</p><small>${formatPrice(item.price)}</small></div><button class="shop-cart-remove" type="button" data-remove="${index}">Rimuovi</button></div>`).join('') : '<p style="color: var(--muted)">Il carrello e vuoto.</p>';
+      document.getElementById('cartTotal').textContent = formatPrice(total);
+    };
+    const addProduct = (product) => { cart.push({ name: product.dataset.name, price: product.dataset.price }); updateCart(); };
+    products.forEach((product) => {
+      product.querySelector('[data-add]').addEventListener('click', () => addProduct(product));
+      product.querySelector('[data-details]').addEventListener('click', () => {
+        selectedProduct = product;
+        const isVideo = product.dataset.mediaType === 'video';
+        const dialogImage = document.getElementById('dialogImage');
+        const dialogVideo = document.getElementById('dialogVideo');
+        const dialogPlayButton = document.getElementById('dialogPlayButton');
+        const dialogMedia = document.querySelector('.shop-dialog__media');
+        dialogVideo.pause();
+        dialogMedia.classList.remove('is-playing');
+        dialogVideo.hidden = !isVideo;
+        dialogImage.hidden = false;
+        dialogPlayButton.hidden = !isVideo;
+        if (isVideo) { dialogImage.src = '/assets/shop-ecommerce-poster.jpg'; dialogImage.alt = 'Anteprima video e-commerce'; dialogVideo.hidden = false; dialogVideo.src = product.dataset.image; dialogVideo.load(); }
+        else { dialogVideo.removeAttribute('src'); dialogImage.src = product.dataset.image; dialogImage.alt = product.querySelector('img').alt; }
+        document.getElementById('dialogTitle').textContent = product.dataset.name;
+        document.getElementById('dialogDescription').innerHTML = productDetails[product.dataset.name] || `<p>${product.dataset.description}</p>`;
+        document.getElementById('dialogGallery').innerHTML = product.dataset.gallery.split('|').map((src, index) => `<img src="${src}" alt="${product.dataset.name}: anteprima ${index + 1}" loading="lazy">`).join('');
+        document.getElementById('dialogPrice').textContent = `Da ${formatPrice(product.dataset.price)}`;
+        productDialog.showModal();
+      });
+    });
+    document.getElementById('dialogAdd').addEventListener('click', () => { addProduct(selectedProduct); productDialog.close(); });
+    document.getElementById('dialogPlayButton').addEventListener('click', () => { const video = document.getElementById('dialogVideo'); document.querySelector('.shop-dialog__media').classList.add('is-playing'); video.play(); });
+    const openCart = () => { updateCart(); cartDialog.showModal(); };
+    document.getElementById('shopCartFloating').addEventListener('click', openCart);
+    document.getElementById('shopCartButton').addEventListener('click', openCart);
+    document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
+    productDialog.addEventListener('close', () => { const video = document.getElementById('dialogVideo'); video.pause(); video.hidden = true; document.querySelector('.shop-dialog__media').classList.remove('is-playing'); });
+    document.getElementById('cartItems').addEventListener('click', (event) => { if (event.target.dataset.remove !== undefined) { cart.splice(Number(event.target.dataset.remove), 1); updateCart(); } });
+    const checkoutButton = document.getElementById('checkoutButton');
+    const checkoutStatus = document.getElementById('checkoutStatus');
+    const setCheckoutStatus = (message, isError = false) => {
+      checkoutStatus.textContent = message;
+      checkoutStatus.classList.toggle('is-error', isError);
+    };
+    checkoutButton.addEventListener('click', async () => {
+      if (!cart.length) { setCheckoutStatus('Aggiungi almeno un prodotto al carrello.', true); return; }
+      checkoutButton.disabled = true;
+      checkoutButton.textContent = 'Apertura pagamento...';
+      setCheckoutStatus('Ti stiamo portando al checkout sicuro Stripe.');
+      try {
+        const response = await fetch('/.netlify/functions/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: cart.map((item) => item.name) })
+        });
+        const result = await response.json();
+        if (!response.ok || !result.url) throw new Error(result.error || 'Checkout non disponibile.');
+        window.location.assign(result.url);
+      } catch (error) {
+        setCheckoutStatus(error.message || 'Non siamo riusciti ad avviare il pagamento. Riprova.', true);
+        checkoutButton.disabled = false;
+        checkoutButton.textContent = 'Vai al pagamento sicuro';
+      }
+    });
+    if (new URLSearchParams(window.location.search).get('checkout') === 'cancelled') {
+      setCheckoutStatus('Pagamento annullato: il carrello e ancora qui quando vuoi riprovare.', true);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Altri servizi | SortedBros</title>
+  <meta name="description" content="Video, contenuti, targhette QR e Google Business per rendere la tua attivita piu visibile e facile da scegliere.">
+  <link rel="canonical" href="https://sortedbros.com/shop/altri-servizi/">
+  <meta name="theme-color" content="#012624">
+  <link rel="icon" href="/assets/favicon-sortedbros.png?v=4" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/assets/favicon-sortedbros.png?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .other-hero { padding: 74px 0 46px; }
+    .other-hero__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); gap: 28px; align-items: end; }
+    .other-hero h1 { margin: 0; font-size: clamp(42px, 6.2vw, 78px); font-weight: 500; letter-spacing: -.07em; line-height: .96; }
+    .other-hero h1 em { color: var(--accent); font-style: normal; }
+    .other-aside, .other-card { border: 1px solid var(--outline); border-radius: var(--radius); background: linear-gradient(145deg, rgba(0, 70, 65, .95), rgba(0, 39, 37, .9)); }
+    .other-aside { padding: 22px; color: var(--muted); }
+    .other-aside p { margin: 0; }
+    .other-back { display: inline-flex; margin-bottom: 22px; color: var(--accent); font-size: 13px; font-weight: 700; }
+    .other-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .other-card { display: flex; min-height: 430px; flex-direction: column; overflow: hidden; transition: transform .3s ease, border-color .3s ease; }
+    .other-card:hover { transform: translateY(-5px); border-color: rgba(90, 240, 223, .6); }
+    .other-card__media { position: relative; height: 185px; overflow: hidden; background: #f8f8f3; }
+    .other-card__media img, .other-card__media video { width: 100%; height: 100%; object-fit: cover; }
+    .other-card__media span { position: absolute; top: 14px; left: 14px; padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.92); color: #013b37; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+    .other-card__body { display: flex; flex: 1; flex-direction: column; padding: 20px 22px 22px; }
+    .other-card__type { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+    .other-card h2 { margin: 16px 0 9px; font-size: 26px; line-height: 1; }
+    .other-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .other-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .other-card__tags span { padding: 5px 8px; border: 1px solid var(--outline); border-radius: 999px; color: var(--muted); font-size: 11px; }
+    .other-card__bottom { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-top: auto; }
+    .other-price small { display: block; color: var(--muted); font-size: 11px; }
+    .other-price strong { color: var(--accent-2); font-size: 23px; font-weight: 500; letter-spacing: -.04em; }
+    .other-actions { display: flex; gap: 8px; }
+    .other-actions .btn { padding: 9px 12px; font-size: 13px; cursor: pointer; }
+    .other-cart { position: fixed; right: 22px; bottom: 22px; z-index: 2; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 11px 15px; background: var(--accent-2); color: #012624; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 12px 36px rgba(0,0,0,.28); }
+    .other-count { display: inline-grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; background: #012624; color: #fff; font-size: 11px; }
+    .other-dialog { width: min(620px, calc(100vw - 32px)); max-height: calc(100vh - 32px); border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: #012624; color: var(--text); }
+    .other-dialog::backdrop { background: rgba(0,15,14,.76); backdrop-filter: blur(6px); }
+    .other-dialog__copy { padding: 28px; }
+    .other-dialog__copy h2 { margin: 8px 0 16px; font-size: 36px; line-height: 1; }
+    .other-dialog__copy p { color: var(--muted); line-height: 1.55; }
+    .other-dialog__copy ul { display: grid; gap: 8px; padding-left: 20px; color: var(--muted); }
+    .other-dialog__close { float: right; border: 0; background: transparent; color: var(--text); cursor: pointer; font: inherit; font-size: 24px; }
+    .other-dialog__price { display: block; margin: 22px 0 14px; color: var(--accent); font-size: 28px; font-weight: 700; }
+    .other-cart-row { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--outline); }
+    .other-cart-row p { margin: 0; }
+    .other-cart-row small { color: var(--muted); }
+    .other-remove { border: 0; background: transparent; color: var(--accent-2); cursor: pointer; text-decoration: underline; }
+    .other-total { display: flex; justify-content: space-between; margin: 20px 0; font-size: 18px; }
+    .other-status { min-height: 20px; color: var(--accent); font-size: 13px; }
+    .other-status.is-error { color: #ffb5a8; }
+    @media (max-width: 920px) { .other-hero__grid { grid-template-columns: 1fr; } .other-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .other-hero { padding: 52px 0 38px; } .other-grid { grid-template-columns: 1fr; } .other-card { min-height: 0; } .other-cart { right: 14px; bottom: 14px; } }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container nav"><a class="brand" href="/" aria-label="SortedBros home"><img class="brand-logo" src="/assets/SortedBros.webp" alt="Logo SortedBros" width="140" height="36" decoding="async"><span class="brand-tag">SortedBros</span></a><button class="hamburger" id="otherMenuToggle" aria-controls="other-menu" aria-expanded="false" aria-label="Apri o chiudi il menu"><span></span><span></span><span></span></button><nav aria-label="Navigazione"><ul class="menu" id="other-menu"><li><a href="/shop/">Listino</a></li><li><a href="/#soluzioni">Servizi</a></li><li><a href="/blog/">Blog</a></li><li><button class="btn btn--primary" type="button" data-open-cart>Carrello <span class="other-count" data-count>0</span></button></li></ul></nav></div></header>
+  <main>
+    <section class="other-hero"><div class="container other-hero__grid"><div><a class="other-back" href="/shop/">← Torna al listino</a><p class="eyebrow">SortedBros shop</p><h1>Altri servizi per <em>farti scegliere.</em></h1></div><aside class="other-aside"><p>Questi servizi completano il tuo progetto: contenuti che fermano lo scroll, una presenza Google più ordinata e strumenti per raccogliere recensioni.</p></aside></div></section>
+    <section class="section"><div class="container"><div class="section__head"><p class="eyebrow">Servizi aggiuntivi</p><h2>Piccoli interventi, impatto concreto.</h2><p>Puoi acquistarli online oppure contattarci prima se vuoi capire quale sia quello giusto.</p></div><div class="other-grid" id="otherGrid"></div></div></section>
+    <section class="section alt"><div class="container cta__box"><p class="eyebrow">Un progetto diverso?</p><h2>Parliamone prima di scegliere.</h2><p>Se non trovi la soluzione giusta, raccontaci cosa vuoi ottenere: la valutiamo insieme senza incasellare il tuo progetto.</p><a class="btn btn--primary" href="mailto:info@sortedbros.com?subject=Richiesta%20altro%20servizio">Scrivici</a></div></section>
+  </main>
+  <button class="other-cart" type="button" data-open-cart>Carrello <span class="other-count" data-count>0</span></button>
+  <dialog class="other-dialog" id="detailDialog"><div class="other-dialog__copy"><button class="other-dialog__close" type="button" data-close aria-label="Chiudi">x</button><p class="eyebrow">Dettaglio servizio</p><h2 id="detailTitle"></h2><div id="detailBody"></div><span class="other-dialog__price" id="detailPrice"></span><button class="btn btn--primary" type="button" id="detailAdd">Aggiungi al carrello</button></div></dialog>
+  <dialog class="other-dialog" id="cartDialog"><div class="other-dialog__copy"><button class="other-dialog__close" type="button" data-close aria-label="Chiudi">x</button><h2>Il tuo carrello</h2><div id="cartItems"></div><div class="other-total"><span>Totale</span><strong id="cartTotal">EUR 0</strong></div><p>Pagamento sicuro con Stripe. Nel checkout ti chiediamo anche i dati necessari per emettere la fattura dal nostro portale.</p><button class="btn btn--primary" type="button" id="checkoutButton">Vai al pagamento sicuro</button><p class="other-status" id="checkoutStatus" role="status"></p></div></dialog>
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> SortedBros. Tutti i diritti riservati. <a class="footer-link" href="/privacy.html">Privacy Policy</a></p></div></footer>
+  <script>
+    const menuToggle = document.getElementById('otherMenuToggle');
+    const menu = document.getElementById('other-menu');
+    menuToggle.addEventListener('click', () => { const open = menu.classList.toggle('is-open'); menuToggle.setAttribute('aria-expanded', String(open)); });
+    const products = [
+      { name: 'Video e-commerce', price: 250, type: 'Video e-commerce', image: '/assets/shop-ecommerce-video.mp4', poster: '/assets/shop-ecommerce-poster.jpg', tags: ['9:16', 'Reel e TikTok', 'Pronto per ads'], description: 'Un contenuto verticale per far fermare lo scroll e portare traffico al tuo shop.', detail: '<p><strong>Un video verticale pronto per Reels, TikTok e campagne social.</strong> Mostra il prodotto con ritmo, dettagli e una chiusura orientata all’acquisto.</p><ul><li>Brief su prodotto, obiettivo, pubblico e canale.</li><li>Montaggio 9:16, color grading, musica e transizioni.</li><li>Versione ottimizzata per Instagram e TikTok.</li><li>Esportazione pronta per pubblicazione o ads.</li></ul>' },
+      { name: 'Video promo', price: 180, type: 'Contenuti', image: '/assets/shop-content-kit.png', tags: ['Montaggio', 'Formato social', 'Musica licenziata'], description: 'Un video breve per raccontare quello che fai su Instagram, sito e campagne.', detail: '<p><strong>Un contenuto breve per spiegare il tuo servizio, una promozione o il tuo brand.</strong></p><ul><li>Scaletta essenziale e messaggio principale.</li><li>Montaggio per Reel, Story o sito.</li><li>Testi in sovraimpressione e musica.</li><li>File finale pronto da pubblicare.</li></ul>' },
+      { name: 'Animazione per social', price: 120, type: 'Motion', image: '/assets/shop-cover-animation.png', tags: ['Motion design', 'Reel o story', 'Branding incluso'], description: 'Una grafica animata per lanciare un servizio, una promo o rendere vivo il tuo brand.', detail: '<p><strong>Una grafica animata per dare movimento a un lancio, una promo o una comunicazione ricorrente.</strong></p><ul><li>Concept coerente con brand e messaggio.</li><li>Animazione di elementi grafici, foto o prodotti.</li><li>Formato verticale per Reel e Story o quadrato per feed.</li><li>File MP4 pronto per la pubblicazione.</li></ul>' },
+      { name: 'Targhetta recensioni Google', price: 29, type: 'Prodotto fisico', image: '/assets/shop-qr-plaque.png', tags: ['QR personalizzato', 'Link Google', 'Pronta per il bancone'], description: 'Un QR pronto da esporre: il cliente scansiona e arriva subito alla tua recensione Google.', detail: '<p><strong>Una targhetta con QR personalizzato per ottenere recensioni in pochi secondi.</strong></p><ul><li>QR creato e testato sul tuo link recensioni.</li><li>Grafica con colori e nome della tua attività.</li><li>File pronto per la produzione.</li><li>QR digitale riutilizzabile su menu e volantini.</li></ul><p>Materiale, formato e spedizione vengono confermati in base alla scelta.</p>' },
+      { name: 'Google Business boost', price: 150, type: 'Google', image: '/assets/shop-website.png', tags: ['Profilo ottimizzato', 'SEO locale', 'Recensioni'], description: 'Profilo Google ordinato, informazioni corrette e un piano concreto per raccogliere recensioni.', detail: '<p><strong>Mettiamo ordine nella presenza locale della tua attività su Google.</strong></p><ul><li>Revisione di categorie, contatti, orari, descrizione e servizi.</li><li>Controllo dei dati incoerenti o mancanti.</li><li>Indicazioni per foto, post e recensioni.</li><li>Piano base per gestire il profilo con costanza.</li></ul><p>Non promettiamo una posizione specifica: miglioriamo le fondamenta che dipendono davvero da te.</p>' }
+    ];
+    const grid = document.getElementById('otherGrid');
+    const cart = [];
+    let selected;
+    const price = (value) => `EUR ${Number(value).toLocaleString('it-IT')}`;
+    grid.innerHTML = products.map((product, index) => `<article class="other-card" data-index="${index}"><div class="other-card__media">${product.poster ? `<video src="${product.image}" poster="${product.poster}" autoplay muted loop playsinline preload="metadata"></video>` : `<img src="${product.image}" alt="${product.name}" loading="lazy">`}<span>${product.type}</span></div><div class="other-card__body"><span class="other-card__type">${product.type}</span><h2>${product.name}</h2><p>${product.description}</p><div class="other-card__tags">${product.tags.map((tag) => `<span>${tag}</span>`).join('')}</div><div class="other-card__bottom"><div class="other-price"><small>Da</small><strong>${price(product.price)}</strong></div><div class="other-actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div></article>`).join('');
+    const detailDialog = document.getElementById('detailDialog');
+    const cartDialog = document.getElementById('cartDialog');
+    const updateCart = () => { document.querySelectorAll('[data-count]').forEach((node) => { node.textContent = cart.length; }); document.getElementById('cartItems').innerHTML = cart.length ? cart.map((item, index) => `<div class="other-cart-row"><div><p>${item.name}</p><small>${price(item.price)}</small></div><button class="other-remove" type="button" data-remove="${index}">Rimuovi</button></div>`).join('') : '<p>Il carrello e vuoto.</p>'; document.getElementById('cartTotal').textContent = price(cart.reduce((total, item) => total + item.price, 0)); };
+    const add = (product) => { cart.push(product); updateCart(); };
+    grid.addEventListener('click', (event) => { const card = event.target.closest('[data-index]'); if (!card) return; const product = products[Number(card.dataset.index)]; if (event.target.closest('[data-add]')) { add(product); return; } if (event.target.closest('[data-details]')) { selected = product; document.getElementById('detailTitle').textContent = product.name; document.getElementById('detailBody').innerHTML = product.detail; document.getElementById('detailPrice').textContent = `Da ${price(product.price)}`; detailDialog.showModal(); } });
+    document.getElementById('detailAdd').addEventListener('click', () => { add(selected); detailDialog.close(); });
+    document.querySelectorAll('[data-open-cart]').forEach((button) => button.addEventListener('click', () => { updateCart(); cartDialog.showModal(); }));
+    document.querySelectorAll('[data-close]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
+    document.getElementById('cartItems').addEventListener('click', (event) => { if (event.target.dataset.remove !== undefined) { cart.splice(Number(event.target.dataset.remove), 1); updateCart(); } });
+    document.getElementById('checkoutButton').addEventListener('click', async () => { const status = document.getElementById('checkoutStatus'); const button = document.getElementById('checkoutButton'); if (!cart.length) { status.textContent = 'Aggiungi almeno un servizio al carrello.'; status.classList.add('is-error'); return; } button.disabled = true; button.textContent = 'Apertura pagamento...'; status.classList.remove('is-error'); status.textContent = 'Ti stiamo portando al checkout sicuro Stripe.'; try { const response = await fetch('/.netlify/functions/create-checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: cart.map((item) => item.name) }) }); const result = await response.json(); if (!response.ok || !result.url) throw new Error(result.error || 'Checkout non disponibile.'); window.location.assign(result.url); } catch (error) { status.textContent = error.message || 'Non siamo riusciti ad avviare il pagamento.'; status.classList.add('is-error'); button.disabled = false; button.textContent = 'Vai al pagamento sicuro'; } });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
