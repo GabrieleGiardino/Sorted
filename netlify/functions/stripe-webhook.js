@@ -11,6 +11,13 @@ const selectedFieldValue = (fields, key) => {
   return field && field.text ? field.text.value : '';
 };
 
+const escapeHtml = (value) => String(value || '')
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
 const formatMoney = (amount, currency) => {
   if (!Number.isFinite(amount)) return '';
   return new Intl.NumberFormat('it-IT', {
@@ -77,6 +84,112 @@ const submitOrderToNetlifyForms = async (event, payload) => {
   }
 };
 
+const customerEmailHtml = (payload) => {
+  const product = escapeHtml(payload.products || 'il tuo acquisto');
+  const amount = escapeHtml(formatMoney(payload.amountTotal, payload.currency));
+  const sessionId = escapeHtml(payload.checkoutSessionId);
+  const logoUrl = 'https://sortedbros.com/assets/SortedBros.png';
+
+  return `<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grazie per il tuo acquisto</title>
+  </head>
+  <body style="margin:0;background:#f4f3ef;color:#111827;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4f3ef;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;background:#ffffff;border:1px solid #e5e2da;border-radius:16px;overflow:hidden;">
+            <tr>
+              <td style="padding:30px 30px 20px;">
+                <img src="${logoUrl}" width="150" alt="SortedBros" style="display:block;max-width:150px;height:auto;margin:0 0 28px;">
+                <p style="margin:0 0 10px;color:#6b7280;font-size:13px;letter-spacing:.08em;text-transform:uppercase;">Ordine confermato</p>
+                <h1 style="margin:0 0 16px;color:#111827;font-size:30px;line-height:1.15;">Grazie per il tuo acquisto.</h1>
+                <p style="margin:0 0 18px;color:#374151;font-size:16px;line-height:1.6;">Abbiamo ricevuto correttamente il pagamento per <strong>${product}</strong>. Ti contatteremo presto per raccogliere i dettagli operativi e avviare il lavoro.</p>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:24px 0;border-collapse:collapse;background:#f8fafc;border-radius:12px;">
+                  <tr>
+                    <td style="padding:16px 18px;color:#6b7280;font-size:13px;">Prodotto</td>
+                    <td align="right" style="padding:16px 18px;color:#111827;font-size:14px;font-weight:700;">${product}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:0 18px 16px;color:#6b7280;font-size:13px;">Totale pagato</td>
+                    <td align="right" style="padding:0 18px 16px;color:#111827;font-size:14px;font-weight:700;">${amount}</td>
+                  </tr>
+                </table>
+                <p style="margin:0 0 14px;color:#374151;font-size:15px;line-height:1.6;">Per fattura e documenti fiscali useremo i dati inseriti nel checkout. Se noti qualcosa da correggere, rispondi direttamente a questa email.</p>
+                <p style="margin:22px 0 0;color:#6b7280;font-size:12px;line-height:1.5;">Riferimento ordine: ${sessionId}</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px 30px;background:#111827;color:#d1d5db;font-size:13px;line-height:1.6;">
+                <strong style="color:#ffffff;">SortedBros</strong><br>
+                Web agency a Parma<br>
+                <a href="mailto:info@sortedbros.com" style="color:#5af0df;text-decoration:none;">info@sortedbros.com</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+};
+
+const customerEmailText = (payload) => [
+  'Grazie per il tuo acquisto.',
+  '',
+  `Abbiamo ricevuto correttamente il pagamento per ${payload.products || 'il tuo acquisto'}.`,
+  `Totale pagato: ${formatMoney(payload.amountTotal, payload.currency)}`,
+  '',
+  'Ti contatteremo presto per raccogliere i dettagli operativi e avviare il lavoro.',
+  'Per fattura e documenti fiscali useremo i dati inseriti nel checkout.',
+  '',
+  `Riferimento ordine: ${payload.checkoutSessionId}`,
+  '',
+  'SortedBros',
+  'info@sortedbros.com',
+].join('\n');
+
+const sendCustomerOrderEmail = async (payload) => {
+  if (!payload.customerEmail) {
+    console.warn('SortedBros customer email skipped: missing customer email.');
+    return;
+  }
+
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('SortedBros customer email skipped: RESEND_API_KEY is not configured.');
+    return;
+  }
+
+  const result = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+      'Idempotency-Key': `sortedbros-customer-${payload.checkoutSessionId}`,
+    },
+    body: JSON.stringify({
+      from: process.env.ORDER_EMAIL_FROM || 'SortedBros <info@sortedbros.com>',
+      to: [payload.customerEmail],
+      reply_to: process.env.ORDER_EMAIL_REPLY_TO || 'info@sortedbros.com',
+      subject: `Grazie per il tuo acquisto - ${payload.products || 'SortedBros'}`,
+      html: customerEmailHtml(payload),
+      text: customerEmailText(payload),
+      tags: [
+        { name: 'source', value: 'sortedbros-shop' },
+        { name: 'checkout_session', value: payload.checkoutSessionId },
+      ],
+    }),
+  });
+
+  if (!result.ok) {
+    const details = await result.text();
+    throw new Error(`Resend customer email failed with ${result.status}: ${details}`);
+  }
+};
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return response(405, { error: 'Metodo non consentito.' });
   if (!process.env.STRIPE_SECRET_KEY) return response(500, { error: 'Stripe non e ancora configurato.' });
@@ -111,6 +224,16 @@ exports.handler = async (event) => {
         });
       } catch (error) {
         console.error('SortedBros Netlify form notification error:', error);
+      }
+
+      try {
+        await sendCustomerOrderEmail(invoicePayload);
+        console.log('SortedBros customer order email processed:', {
+          checkoutSessionId: invoicePayload.checkoutSessionId,
+          customerEmail: invoicePayload.customerEmail,
+        });
+      } catch (error) {
+        console.error('SortedBros customer email error:', error);
       }
     }
 
