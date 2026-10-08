@@ -88,7 +88,7 @@ const customerEmailHtml = (payload) => {
   const product = escapeHtml(payload.products || 'il tuo acquisto');
   const amount = escapeHtml(formatMoney(payload.amountTotal, payload.currency));
   const sessionId = escapeHtml(payload.checkoutSessionId);
-  const logoUrl = 'https://sortedbros.com/assets/SortedBros.png';
+  const logoUrl = 'https://sortedbros.com/assets/email-logo-sortedbros-white.png?v=1';
 
   return `<!doctype html>
 <html lang="it">
@@ -104,7 +104,13 @@ const customerEmailHtml = (payload) => {
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;background:#ffffff;border:1px solid #e5e2da;border-radius:16px;overflow:hidden;">
             <tr>
               <td style="padding:30px 30px 20px;">
-                <img src="${logoUrl}" width="150" alt="SortedBros" style="display:block;max-width:150px;height:auto;margin:0 0 28px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" style="margin:0 0 28px;background:#111827;border-radius:14px;">
+                  <tr>
+                    <td style="padding:18px 20px;">
+                      <img src="${logoUrl}" width="170" alt="SortedBros" style="display:block;max-width:170px;height:auto;">
+                    </td>
+                  </tr>
+                </table>
                 <p style="margin:0 0 10px;color:#6b7280;font-size:13px;letter-spacing:.08em;text-transform:uppercase;">Ordine confermato</p>
                 <h1 style="margin:0 0 16px;color:#111827;font-size:30px;line-height:1.15;">Grazie per il tuo acquisto.</h1>
                 <p style="margin:0 0 18px;color:#374151;font-size:16px;line-height:1.6;">Abbiamo ricevuto correttamente il pagamento per <strong>${product}</strong>. Ti contatteremo presto per raccogliere i dettagli operativi e avviare il lavoro.</p>
