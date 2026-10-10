@@ -66,6 +66,10 @@
     .shop-product__actions .btn { background: transparent; color: var(--text); }
     .shop-cart { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 11px 15px; background: var(--accent-2); color: #012624; box-shadow: 0 12px 36px rgba(0,0,0,.28); font: inherit; font-weight: 700; cursor: pointer; }
     .shop-cart__count { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #012624; color: #fff; font-size: 11px; }
+    .shop-toast { position: fixed; right: 22px; bottom: 82px; z-index: 90; width: min(360px, calc(100vw - 28px)); padding: 14px 16px; border: 1px solid rgba(90, 240, 223, .45); border-radius: 14px; background: rgba(1, 38, 36, .96); color: var(--text); box-shadow: 0 18px 46px rgba(0,0,0,.35); transform: translateY(14px); opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+    .shop-toast.is-visible { transform: translateY(0); opacity: 1; }
+    .shop-toast strong { display: block; margin-bottom: 2px; color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; }
+    .shop-toast span { display: block; color: var(--text); font-size: 14px; line-height: 1.35; }
     .shop-dialog { width: min(690px, calc(100vw - 32px)); max-height: min(760px, calc(100vh - 32px)); padding: 0; overflow: auto; border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: #012624; color: var(--text); }
     .shop-dialog::backdrop { background: rgba(0,15,14,.76); backdrop-filter: blur(6px); }
     .shop-dialog__content { display: grid; grid-template-columns: .9fr 1.1fr; }
@@ -122,7 +126,7 @@
     .shop-note strong { color: var(--text); }
     @keyframes shop-marquee { to { transform: translateX(-25%); } }
     @media (max-width: 920px) { .shop-hero__grid, .shop-path, .shop-why { grid-template-columns: 1fr; } .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 620px) { .shop-hero { padding: 52px 0 38px; } .shop-intro { display: block; } .shop-intro p { margin-top: 12px; } .shop-grid, .shop-steps, .shop-dialog__content, .shop-why__grid { grid-template-columns: 1fr; } .shop-product { min-height: 0; } .shop-dialog__media { min-height: 280px; max-height: 380px; } .shop-dialog__copy { padding: 24px; } .shop-cart { right: 14px; bottom: 14px; } .shop-why__card { min-height: 0; } }
+    @media (max-width: 620px) { .shop-hero { padding: 52px 0 38px; } .shop-intro { display: block; } .shop-intro p { margin-top: 12px; } .shop-grid, .shop-steps, .shop-dialog__content, .shop-why__grid { grid-template-columns: 1fr; } .shop-product { min-height: 0; } .shop-dialog__media { min-height: 280px; max-height: 380px; } .shop-dialog__copy { padding: 24px; } .shop-cart { right: 14px; bottom: 14px; } .shop-toast { right: 14px; bottom: 76px; } .shop-why__card { min-height: 0; } }
   </style>
 </head>
 <body>
@@ -179,12 +183,12 @@
             <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 500</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
           </article>
           <article class="shop-product" id="shop-agenda" data-category="web" data-name="Agenda e prenotazioni" data-price="1500" data-image="/assets/shop-cover-booking.png" data-gallery="/assets/shop-tools-detail.png|/assets/shop-website.png|/assets/shop-qr-plaque.png" data-description="Un sistema di prenotazioni con agenda, reminder e gestione clienti per ridurre messaggi e passaggi manuali.">
-            <div class="shop-product__image"><img src="/assets/shop-cover-booking.png" alt="Agenda digitale su tablet e smartphone" loading="lazy"><span>Tool e booking</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Booking</span><span class="shop-product__icon">AG</span></div>
+            <div class="shop-product__image"><img src="/assets/shop-cover-booking.png" alt="Agenda digitale su tablet e smartphone" loading="lazy"><span>Tool e booking</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Booking</span><span class="shop-product__icon">03</span></div>
             <h3>Agenda e prenotazioni</h3><p>Una giornata piu ordinata, con appuntamenti e promemoria sotto controllo.</p><div class="shop-product__meta"><span>Agenda</span><span>90 giorni supporto</span><span>Dominio 1o anno</span></div>
             <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 1.500</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
           </article>
           <article class="shop-product" id="shop-ecommerce" data-category="web" data-name="E-commerce completo" data-price="3000" data-image="/assets/shop-ecommerce-detail.png" data-gallery="/assets/shop-ecommerce-detail.png|/assets/shop-website.png|/assets/shop-content-kit.png" data-description="Un negozio online completo, con catalogo, pagamenti e un percorso d'acquisto pensato per vendere.">
-            <div class="shop-product__image"><img src="/assets/shop-ecommerce-detail.png" alt="E-commerce con prodotti e spedizione" loading="lazy"><span>Store e-commerce</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Store completo</span><span class="shop-product__icon">EC</span></div>
+            <div class="shop-product__image"><img src="/assets/shop-ecommerce-detail.png" alt="E-commerce con prodotti e spedizione" loading="lazy"><span>Store e-commerce</span></div><div class="shop-product__body"><div class="shop-product__top"><span class="shop-product__type">Store completo</span><span class="shop-product__icon">04</span></div>
             <h3>E-commerce completo</h3><p>Catalogo, pagamenti e UX chiara per vendere prodotti online con serenita.</p><div class="shop-product__meta"><span>Catalogo</span><span>90 giorni supporto</span><span>Dominio 1o anno</span></div>
             <div class="shop-product__bottom"><div class="shop-price"><small>Prezzo finale</small><strong>EUR 3.000</strong></div><div class="shop-product__actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div>
           </article>
@@ -227,6 +231,7 @@
   </main>
 
   <button class="shop-cart" type="button" id="shopCartFloating">Carrello <span class="shop-cart__count" data-cart-count>0</span></button>
+  <div class="shop-toast" id="shopToast" role="status" aria-live="polite" aria-atomic="true"><strong>Carrello</strong><span></span></div>
   <dialog class="shop-dialog" id="productDialog">
     <div class="shop-dialog__content"><div class="shop-dialog__media"><img id="dialogImage" src="" alt=""><video id="dialogVideo" muted loop playsinline controls poster="/assets/shop-ecommerce-poster.jpg" hidden></video><button class="shop-video-play" id="dialogPlayButton" type="button" hidden>Guarda il video</button></div><div class="shop-dialog__copy"><button class="shop-dialog__close" type="button" data-close-dialog aria-label="Chiudi">x</button><p class="eyebrow">Dettaglio prodotto</p><h2 id="dialogTitle"></h2><div class="shop-detail-description" id="dialogDescription"></div><div class="shop-detail-gallery" id="dialogGallery" aria-label="Anteprime del servizio"></div><span class="shop-dialog__price" id="dialogPrice"></span><button class="btn btn--primary" type="button" id="dialogAdd">Aggiungi al carrello</button></div></div>
   </dialog>
@@ -257,7 +262,16 @@
     const cartDialog = document.getElementById('cartDialog');
     const cart = [];
     let selectedProduct;
+    let toastTimer;
     const formatPrice = (price) => `EUR ${Number(price).toLocaleString('it-IT')}`;
+    const showCartToast = (message, label = 'Carrello aggiornato') => {
+      const toast = document.getElementById('shopToast');
+      toast.querySelector('strong').textContent = label;
+      toast.querySelector('span').textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
+    };
     const updateCart = () => {
       document.querySelectorAll('[data-cart-count]').forEach((count) => { count.textContent = cart.length; });
       const cartItems = document.getElementById('cartItems');
@@ -265,7 +279,11 @@
       cartItems.innerHTML = cart.length ? cart.map((item, index) => `<div class="shop-cart-row"><div><p>${item.name}</p><small>${formatPrice(item.price)}</small></div><button class="shop-cart-remove" type="button" data-remove="${index}">Rimuovi</button></div>`).join('') : '<p style="color: var(--muted)">Il carrello e vuoto.</p>';
       document.getElementById('cartTotal').textContent = formatPrice(total);
     };
-    const addProduct = (product) => { cart.push({ name: product.dataset.name, price: product.dataset.price }); updateCart(); };
+    const addProduct = (product) => {
+      cart.push({ name: product.dataset.name, price: product.dataset.price });
+      updateCart();
+      showCartToast(`${product.dataset.name} aggiunto al carrello.`, 'Aggiunto');
+    };
     products.forEach((product) => {
       product.querySelector('[data-add]').addEventListener('click', () => addProduct(product));
       product.querySelector('[data-details]').addEventListener('click', () => {
@@ -296,7 +314,13 @@
     document.getElementById('shopCartButton').addEventListener('click', openCart);
     document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
     productDialog.addEventListener('close', () => { const video = document.getElementById('dialogVideo'); video.pause(); video.hidden = true; document.querySelector('.shop-dialog__media').classList.remove('is-playing'); });
-    document.getElementById('cartItems').addEventListener('click', (event) => { if (event.target.dataset.remove !== undefined) { cart.splice(Number(event.target.dataset.remove), 1); updateCart(); } });
+    document.getElementById('cartItems').addEventListener('click', (event) => {
+      if (event.target.dataset.remove !== undefined) {
+        const [removed] = cart.splice(Number(event.target.dataset.remove), 1);
+        updateCart();
+        if (removed) showCartToast(`${removed.name} rimosso dal carrello.`, 'Rimosso');
+      }
+    });
     const checkoutButton = document.getElementById('checkoutButton');
     const checkoutStatus = document.getElementById('checkoutStatus');
     const setCheckoutStatus = (message, isError = false) => {

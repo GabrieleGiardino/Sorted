@@ -30,7 +30,9 @@
     .other-card__media img, .other-card__media video { width: 100%; height: 100%; object-fit: cover; }
     .other-card__media span { position: absolute; top: 14px; left: 14px; padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.92); color: #013b37; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
     .other-card__body { display: flex; flex: 1; flex-direction: column; padding: 20px 22px 22px; }
+    .other-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
     .other-card__type { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+    .other-card__number { width: 46px; height: 46px; display: grid; flex: 0 0 auto; place-items: center; border-radius: 12px; background: rgba(253, 233, 255, .12); color: var(--accent-2); font-weight: 700; font-size: 18px; }
     .other-card h2 { margin: 16px 0 9px; font-size: 26px; line-height: 1; }
     .other-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
     .other-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
@@ -40,8 +42,12 @@
     .other-price strong { color: var(--accent-2); font-size: 23px; font-weight: 500; letter-spacing: -.04em; }
     .other-actions { display: flex; gap: 8px; }
     .other-actions .btn { padding: 9px 12px; font-size: 13px; cursor: pointer; }
-    .other-cart { position: fixed; right: 22px; bottom: 22px; z-index: 2; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 11px 15px; background: var(--accent-2); color: #012624; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 12px 36px rgba(0,0,0,.28); }
+    .other-cart { position: fixed; right: 22px; bottom: 22px; z-index: 70; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 11px 15px; background: var(--accent-2); color: #012624; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 12px 36px rgba(0,0,0,.28); }
     .other-count { display: inline-grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; background: #012624; color: #fff; font-size: 11px; }
+    .other-toast { position: fixed; right: 22px; bottom: 82px; z-index: 90; width: min(360px, calc(100vw - 28px)); padding: 14px 16px; border: 1px solid rgba(90, 240, 223, .45); border-radius: 14px; background: rgba(1, 38, 36, .96); color: var(--text); box-shadow: 0 18px 46px rgba(0,0,0,.35); transform: translateY(14px); opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+    .other-toast.is-visible { transform: translateY(0); opacity: 1; }
+    .other-toast strong { display: block; margin-bottom: 2px; color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; }
+    .other-toast span { display: block; color: var(--text); font-size: 14px; line-height: 1.35; }
     .other-dialog { width: min(620px, calc(100vw - 32px)); max-height: calc(100vh - 32px); border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: #012624; color: var(--text); }
     .other-dialog::backdrop { background: rgba(0,15,14,.76); backdrop-filter: blur(6px); }
     .other-dialog__copy { padding: 28px; }
@@ -58,7 +64,7 @@
     .other-status { min-height: 20px; color: var(--accent); font-size: 13px; }
     .other-status.is-error { color: #ffb5a8; }
     @media (max-width: 920px) { .other-hero__grid { grid-template-columns: 1fr; } .other-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 620px) { .other-hero { padding: 52px 0 38px; } .other-grid { grid-template-columns: 1fr; } .other-card { min-height: 0; } .other-cart { right: 14px; bottom: 14px; } }
+    @media (max-width: 620px) { .other-hero { padding: 52px 0 38px; } .other-grid { grid-template-columns: 1fr; } .other-card { min-height: 0; } .other-cart { right: 14px; bottom: 14px; } .other-toast { right: 14px; bottom: 76px; } }
   </style>
 </head>
 <body>
@@ -69,6 +75,7 @@
     <section class="section alt"><div class="container cta__box"><p class="eyebrow">Un progetto diverso?</p><h2>Parliamone prima di scegliere.</h2><p>Se non trovi la soluzione giusta, raccontaci cosa vuoi ottenere: la valutiamo insieme senza incasellare il tuo progetto.</p><a class="btn btn--primary" href="mailto:info@sortedbros.com?subject=Richiesta%20altro%20servizio">Scrivici</a></div></section>
   </main>
   <button class="other-cart" type="button" data-open-cart>Carrello <span class="other-count" data-count>0</span></button>
+  <div class="other-toast" id="otherToast" role="status" aria-live="polite" aria-atomic="true"><strong>Carrello</strong><span></span></div>
   <dialog class="other-dialog" id="detailDialog"><div class="other-dialog__copy"><button class="other-dialog__close" type="button" data-close aria-label="Chiudi">x</button><p class="eyebrow">Dettaglio servizio</p><h2 id="detailTitle"></h2><div id="detailBody"></div><span class="other-dialog__price" id="detailPrice"></span><button class="btn btn--primary" type="button" id="detailAdd">Aggiungi al carrello</button></div></dialog>
   <dialog class="other-dialog" id="cartDialog"><div class="other-dialog__copy"><button class="other-dialog__close" type="button" data-close aria-label="Chiudi">x</button><h2>Il tuo carrello</h2><div id="cartItems"></div><div class="other-total"><span>Totale</span><strong id="cartTotal">EUR 0</strong></div><p>Pagamento sicuro con Stripe. Nel checkout ti chiediamo anche i dati necessari per emettere la fattura dal nostro portale.</p><button class="btn btn--primary" type="button" id="checkoutButton">Vai al pagamento sicuro</button><p class="other-status" id="checkoutStatus" role="status"></p></div></dialog>
   <footer class="footer"><div class="container"><p>© <span id="year"></span> SortedBros. Tutti i diritti riservati. <a class="footer-link" href="/privacy.html">Privacy Policy</a></p></div></footer>
@@ -86,17 +93,31 @@
     const grid = document.getElementById('otherGrid');
     const cart = [];
     let selected;
+    let toastTimer;
     const price = (value) => `EUR ${Number(value).toLocaleString('it-IT')}`;
-    grid.innerHTML = products.map((product, index) => `<article class="other-card" data-index="${index}"><div class="other-card__media">${product.poster ? `<video src="${product.image}" poster="${product.poster}" autoplay muted loop playsinline preload="metadata"></video>` : `<img src="${product.image}" alt="${product.name}" loading="lazy">`}<span>${product.type}</span></div><div class="other-card__body"><span class="other-card__type">${product.type}</span><h2>${product.name}</h2><p>${product.description}</p><div class="other-card__tags">${product.tags.map((tag) => `<span>${tag}</span>`).join('')}</div><div class="other-card__bottom"><div class="other-price"><small>Da</small><strong>${price(product.price)}</strong></div><div class="other-actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div></article>`).join('');
+    const productNumber = (index) => String(index + 1).padStart(2, '0');
+    const showCartToast = (message, label = 'Carrello aggiornato') => {
+      const toast = document.getElementById('otherToast');
+      toast.querySelector('strong').textContent = label;
+      toast.querySelector('span').textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
+    };
+    grid.innerHTML = products.map((product, index) => `<article class="other-card" data-index="${index}"><div class="other-card__media">${product.poster ? `<video src="${product.image}" poster="${product.poster}" autoplay muted loop playsinline preload="metadata"></video>` : `<img src="${product.image}" alt="${product.name}" loading="lazy">`}<span>${product.type}</span></div><div class="other-card__body"><div class="other-card__top"><span class="other-card__type">${product.type}</span><span class="other-card__number">${productNumber(index)}</span></div><h2>${product.name}</h2><p>${product.description}</p><div class="other-card__tags">${product.tags.map((tag) => `<span>${tag}</span>`).join('')}</div><div class="other-card__bottom"><div class="other-price"><small>Da</small><strong>${price(product.price)}</strong></div><div class="other-actions"><button class="btn btn--ghost" type="button" data-details>Dettagli</button><button class="btn btn--primary" type="button" data-add>Aggiungi</button></div></div></div></article>`).join('');
     const detailDialog = document.getElementById('detailDialog');
     const cartDialog = document.getElementById('cartDialog');
     const updateCart = () => { document.querySelectorAll('[data-count]').forEach((node) => { node.textContent = cart.length; }); document.getElementById('cartItems').innerHTML = cart.length ? cart.map((item, index) => `<div class="other-cart-row"><div><p>${item.name}</p><small>${price(item.price)}</small></div><button class="other-remove" type="button" data-remove="${index}">Rimuovi</button></div>`).join('') : '<p>Il carrello e vuoto.</p>'; document.getElementById('cartTotal').textContent = price(cart.reduce((total, item) => total + item.price, 0)); };
-    const add = (product) => { cart.push(product); updateCart(); };
+    const add = (product) => {
+      cart.push(product);
+      updateCart();
+      showCartToast(`${product.name} aggiunto al carrello.`, 'Aggiunto');
+    };
     grid.addEventListener('click', (event) => { const card = event.target.closest('[data-index]'); if (!card) return; const product = products[Number(card.dataset.index)]; if (event.target.closest('[data-add]')) { add(product); return; } if (event.target.closest('[data-details]')) { selected = product; document.getElementById('detailTitle').textContent = product.name; document.getElementById('detailBody').innerHTML = product.detail; document.getElementById('detailPrice').textContent = `Da ${price(product.price)}`; detailDialog.showModal(); } });
     document.getElementById('detailAdd').addEventListener('click', () => { add(selected); detailDialog.close(); });
     document.querySelectorAll('[data-open-cart]').forEach((button) => button.addEventListener('click', () => { updateCart(); cartDialog.showModal(); }));
     document.querySelectorAll('[data-close]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
-    document.getElementById('cartItems').addEventListener('click', (event) => { if (event.target.dataset.remove !== undefined) { cart.splice(Number(event.target.dataset.remove), 1); updateCart(); } });
+    document.getElementById('cartItems').addEventListener('click', (event) => { if (event.target.dataset.remove !== undefined) { const [removed] = cart.splice(Number(event.target.dataset.remove), 1); updateCart(); if (removed) showCartToast(`${removed.name} rimosso dal carrello.`, 'Rimosso'); } });
     document.getElementById('checkoutButton').addEventListener('click', async () => { const status = document.getElementById('checkoutStatus'); const button = document.getElementById('checkoutButton'); if (!cart.length) { status.textContent = 'Aggiungi almeno un servizio al carrello.'; status.classList.add('is-error'); return; } button.disabled = true; button.textContent = 'Apertura pagamento...'; status.classList.remove('is-error'); status.textContent = 'Ti stiamo portando al checkout sicuro Stripe.'; try { const response = await fetch('/.netlify/functions/create-checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: cart.map((item) => item.name) }) }); const result = await response.json(); if (!response.ok || !result.url) throw new Error(result.error || 'Checkout non disponibile.'); window.location.assign(result.url); } catch (error) { status.textContent = error.message || 'Non siamo riusciti ad avviare il pagamento.'; status.classList.add('is-error'); button.disabled = false; button.textContent = 'Vai al pagamento sicuro'; } });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
