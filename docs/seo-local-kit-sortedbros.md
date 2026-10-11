@@ -32,6 +32,20 @@ Anchor consigliata:
 
 `sito professionale realizzato da SortedBros`
 
+### Mork Tattoo Studio
+
+Testo breve:
+
+> Sito portfolio realizzato da [SortedBros](https://sortedbros.com/casi-studio/mork-tattoo-studio/).
+
+Link consigliato:
+
+`https://sortedbros.com/casi-studio/mork-tattoo-studio/`
+
+Anchor consigliata:
+
+`sito portfolio realizzato da SortedBros`
+
 ### Q Beauty
 
 Testo breve:

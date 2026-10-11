@@ -574,11 +574,16 @@ h4 {
 .project-link {
   display: inline-flex;
   margin-top: 10px;
+  margin-right: 14px;
   font-weight: 500;
   color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+}
+
+.project-link + .project-link {
+  margin-left: 2px;
 }
 
 .tags {
