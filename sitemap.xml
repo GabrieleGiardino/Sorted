@@ -60,6 +60,42 @@
     <priority>0.78</priority>
   </url>
 
+  <!-- Casi studio -->
+  <url>
+    <loc>https://sortedbros.com/casi-studio/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/casi-studio/non-solo-gomme/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/casi-studio/pasquale-cena/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/casi-studio/qbeauty/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/casi-studio/camilla-beauty-boutique/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+
   <!-- Blog index -->
   <url>
     <loc>https://sortedbros.com/blog/</loc>
@@ -74,6 +110,27 @@
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/blog/migliori-soluzioni-sito-web-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.68</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/blog/quanto-costa-ecommerce-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.68</priority>
+  </url>
+
+  <url>
+    <loc>https://sortedbros.com/blog/sito-web-attivita-locale-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.68</priority>
   </url>
 
   <!-- Landing (IT) -->
