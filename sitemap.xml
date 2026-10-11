@@ -4,7 +4,7 @@
   <!-- Home (IT) -->
   <url>
     <loc>https://sortedbros.com/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://sortedbros.com/"/>
@@ -15,15 +15,55 @@
   <!-- Web agency Parma (IT) -->
   <url>
     <loc>https://sortedbros.com/web-agency-parma/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <!-- Preventivo sito internet Parma (IT) -->
+  <url>
+    <loc>https://sortedbros.com/preventivo-sito-internet-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- Sito business Parma (IT) -->
+  <url>
+    <loc>https://sortedbros.com/sito-business-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- E-commerce Parma (IT) -->
+  <url>
+    <loc>https://sortedbros.com/ecommerce-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- Contenuti web Parma (IT) -->
+  <url>
+    <loc>https://sortedbros.com/contenuti-web-parma/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+
+  <!-- Shop SortedBros (IT) -->
+  <url>
+    <loc>https://sortedbros.com/shop/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.78</priority>
   </url>
 
   <!-- Blog index -->
   <url>
     <loc>https://sortedbros.com/blog/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
   </url>
@@ -31,7 +71,7 @@
   <!-- Blog: Quanto costa un sito web a Parma -->
   <url>
     <loc>https://sortedbros.com/blog/quanto-costa-un-sito-web-a-parma/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
